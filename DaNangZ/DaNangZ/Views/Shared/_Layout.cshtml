@@ -1,55 +1,52 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>DaNangZ - Tin tức Đà Nẵng trong ngày mới nhất</title>
-        <link href="~/Images/icon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        <link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
-        <script src="~/Scripts/jquery-2.1.1.js"></script>
-        <link href="~/Content/themes/base/theme.css" rel="stylesheet" />
-        <script src="~/Scripts/jquery-migrate-1.2.1.js"></script>
-        <script src="~/Scripts/jquery-ui-1.11.2.js"></script>
-        <script src="~/Scripts/jquery.jqGrid.min.js"></script>
-        <link href="~/Content/dnzStyle/dnz-common.css" rel="stylesheet" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <img src="~/Images/image/dnz-logo.png" />
-                    @*<p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>*@
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                    </section>
-                    @*<nav>
+<head>
+    <meta charset="utf-8" />
+    <title>DaNangZ - Tin tức Đà Nẵng trong ngày mới nhất</title>
+    <link href="~/Images/icon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/dnzStyle/dnz-common.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/theme.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-ui-1.11.1.js"></script>
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <img src="~/Images/image/dnz-logo.png" />
+                @*<p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>*@
+            </div>
+            <div class="float-right">
+                <section id="login"></section>
+                @*<nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         </ul>
                     </nav>*@
-                </div>
             </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Copyright by DaNangZ</p>
-                </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Copyright by DaNangZ</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+
+    @RenderSection("scripts", required: false)
+</body>
 </html>

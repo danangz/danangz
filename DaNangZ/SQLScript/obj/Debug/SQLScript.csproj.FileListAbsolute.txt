@@ -4,6 +4,5 @@ C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\SQLScript\obj\Deb
 C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\SQLScript\obj\Debug\SQLScript.pdb
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\bin\Debug\SQLScript.dll
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\bin\Debug\SQLScript.pdb
-C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\obj\Debug\SQLScript.csprojResolveAssemblyReference.cache
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\obj\Debug\SQLScript.dll
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\obj\Debug\SQLScript.pdb

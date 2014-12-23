@@ -1,8 +1,20 @@
 ﻿@model List<DaNangZ.DbFirst.Model.Category>
 
-<input type="button" title="Add Category" value="Add Category" class="button"/>
+<input type="button" id="btnAdd" title="Add Category" value="Add Category" class="button" />
 <br />
 <br />
+
+<div id="create_form" style="display: none; font-size:12px" title="Add Category">
+    <table>
+        <tr>
+            Category Name
+        </tr>
+        <tr>
+            @Html.TextBox("categoryName","", new { @style = "width: 90%; margin-left: 10px;" })
+        </tr>
+    </table>
+</div>
+
 <table>
     <tr>
         <th>
@@ -31,7 +43,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem  => item.Id)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
@@ -55,3 +67,26 @@
         </tr>
     }
 </table>
+
+<script>
+
+    $("#btnAdd").click(function () {
+        $("#create_form").dialog({
+            autoOpen: true,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "blind",
+                duration: 1000
+            },
+            buttons: [{
+                text: "Close",
+                click: function () {
+                    $(this).dialog("close");
+                }
+            }]
+        });
+    });
+</script>
