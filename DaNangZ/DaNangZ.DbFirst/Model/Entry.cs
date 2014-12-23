@@ -18,10 +18,15 @@ namespace DaNangZ.DbFirst.Model
         public int CategoryId { get; set; }
         public string EntrySubject { get; set; }
         public string EntryContent { get; set; }
+        public string AvatarLink { get; set; }
+        public string Summarize { get; set; }
+        public bool Actived { get; set; }
         public string StatusId { get; set; }
+        public int OrderInHome { get; set; }
         public string InsBy { get; set; }
         public System.DateTime InsAt { get; set; }
         public string UpdBy { get; set; }
         public Nullable<System.DateTime> UpdAt { get; set; }
+        public int ViewedCount { get; set; }
     }
 }

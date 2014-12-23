@@ -1,92 +1,214 @@
-﻿@model List<DaNangZ.DbFirst.Model.Category>
-
-<input type="button" id="btnAdd" title="Add Category" value="Add Category" class="button" />
+﻿<input type="button" id="btnAdd" title="Thêm Danh mục" value="Thêm Danh mục" class="button" />
 <br />
 <br />
 
-<div id="create_form" style="display: none; font-size:12px" title="Add Category">
+@Html.AntiForgeryToken()
+<div id="create_form" style="display: none; font-size:12px" title="Thêm Danh mục">
     <table>
         <tr>
-            Category Name
+            <td>
+                @Html.Hidden("categoryIdEdit")
+                @Html.Hidden("categoryNameOld")
+                @Html.Label("Tên Danh mục", new { @style = "padding-left: 10px; padding-top: 3px; float: left; width: 40%;" })
+            </td>
         </tr>
         <tr>
-            @Html.TextBox("categoryName","", new { @style = "width: 90%; margin-left: 10px;" })
+            <td>
+                @Html.TextBox("categoryName", "", new { @style = "width: 90%; margin-left: 1px;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btnClose" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+                <input id="btnOk" type="button" value="Thêm" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+            </td>
         </tr>
     </table>
 </div>
 
-<table>
-    <tr>
-        <th>
-            Category Id
-        </th>
-        <th>
-            Category Name
-        </th>
-        <th>
-            Created At
-        </th>
-        <th>
-            Created By
-        </th>
-        <th>
-            Last Updated
-        </th>
-        <th>
-            Updated By
-        </th>
-        <th>
-            Action
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
+<div id="dialog_confirm_delete" title="Delete Asset" style="display: none; font-size:12px">
+    <table>
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InsAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InsBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdBy)
-            </td>
-            <td>
-                <img class="icon-edit" id='btnEdit' />
-                <img class="icon-delete" id='btnDelete' />
+                <div id="message_confirm" style="padding-top: 5px;">Bạn có chắc chắn muốn xóa danh mục này không?</div>
             </td>
         </tr>
-    }
-</table>
+        <tr>
+            <td>
+                <input id="btnCloseDel" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+                <input id="btnOkDel" type="button" value="Xóa" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+            </td>
+        </tr>
+    </table>
+    <br />
+</div>
+
+<table id="grid"></table>
+<div id="pager" class="div_pager"></div>
 
 <script>
 
     $("#btnAdd").click(function () {
+        $("#categoryName").val('');
         $("#create_form").dialog({
-            autoOpen: true,
-            show: {
-                effect: "blind",
-                duration: 1000
-            },
-            hide: {
-                effect: "blind",
-                duration: 1000
-            },
-            buttons: [{
-                text: "Close",
-                click: function () {
-                    $(this).dialog("close");
-                }
-            }]
+            closeOnEscape: false,
+            open: function (event, ui) { $(".ui-dialog-titlebar-close").hide() },
+            height: 'auto',
+            width: '300px',
+            modal: true,
+            title: 'Thêm Danh mục',
         });
+    });
+
+    $("#btnOk").click(function () {
+        if ($('#categoryIdEdit').val().length == 0) {
+            var requestData = {
+                __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+                categoryName: $("#categoryName").val()
+            };
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: '@Url.Action("AddCategory", "Category")',
+                async: false,
+                data: requestData,
+                dataType: "json",
+                timeout: 5000,
+                success: function (response) {
+                    if (response.success == false) {
+                    }
+                    else {
+                        $("#categoryName").val('');
+                        $("#create_form").dialog("close");
+                        $("#grid").trigger("reloadGrid");
+                    }
+                },
+            });
+        }
+        else {
+            var requestData = {
+                __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+                categoryId: $('#categoryIdEdit').val(),
+                categoryNameOld: $("#categoryNameOld").val(),
+                categoryNameNew: $("#categoryName").val()
+            };
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: '@Url.Action("EditCategory", "Category")',
+                async: false,
+                data: requestData,
+                dataType: "json",
+                timeout: 5000,
+                success: function (response) {
+                    if (response.success == false) {
+                    }
+                    else {
+                        $("#categoryName").val('');
+                        $('#categoryIdEdit').val('');
+                        $("#categoryNameOld").val('');
+                        $("#create_form").dialog("close");
+                        $("#grid").trigger("reloadGrid");
+                    }
+                },
+            });
+        }
+    });
+
+    $("#btnOkDel").click(function () {
+        var requestData = {
+            __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+            categoryId: $("#categoryIdEdit").val()
+        };
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("DeleteCategory", "Category")',
+            async: false,
+            data: requestData,
+            dataType: "json",
+            timeout: 5000,
+            success: function (response) {
+                if (response.success == false) {
+                }
+                else {
+                    $("#dialog_confirm_delete").dialog("close");
+                    $("#grid").trigger("reloadGrid");
+                }
+            },
+        });
+    });
+
+    jQuery("#grid").jqGrid({
+        url: '/Category/GetAll',
+        datatype: "json",
+        colNames: ['Id', 'Tên Danh Mục', 'Thời gian thêm', 'Thêm bởi', 'Thời gian sửa', 'Sửa bởi', ''],
+        colModel: [
+            { name: 'Id', align: "center", key: true, hidden: true, sortable: true },
+            { name: 'CategoryName', width: 50, editable: true, align: "center" },
+            { name: 'InsAt', width: 30, align: "center", formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y h:i A" }, formatter: "date" },
+            { name: 'InsBy', width: 40, align: "center" },
+            { name: 'UpdAt', width: 30, align: "center", formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y h:i A" }, formatter: "date" },
+            { name: 'UpdBy', width: 40, align: "center" },
+            { name: 'Action', width: 20, align: "center", sortable: false, clickable: false },
+        ],
+        rowNum: 20,
+        rowList: false,
+        pager: '#pager',
+        viewrecords: true,
+        ShinkToFit: false,
+        multiSort: true,
+        hidegrid: false,
+        gridview: true,
+        myType: 'GET',
+        height: 200,
+        jsonReader: {
+            root: "rows",
+            page: "page",
+            total: "total",
+            records: "records",
+            repeatitems: false,
+            userdata: "userdata"
+        },
+        autowidth: true,
+        autoheight: true,
+        mutiselect: false,
+        editable: true
+    });
+
+    $("#grid").jqGrid('navGrid', '#pager', { edit: false, add: false, del: false, search: false, resfresh: false });
+
+    function Edit(id, cateName) {
+        $("#categoryIdEdit").val(id);
+        $("#categoryNameOld").val(cateName)
+        $('#categoryName').val(cateName);
+        $("#create_form").dialog({
+            closeOnEscape: false,
+            open: function (event, ui) { $(".ui-dialog-titlebar-close").hide() },
+            height: 'auto',
+            width: '300px',
+            modal: true,
+            title: 'Sửa Danh mục',
+        });
+    };
+
+    function Delete(id) {
+        $("#categoryIdEdit").val(id);
+        $("#dialog_confirm_delete").dialog({
+            closeOnEscape: false,
+            open: function (event, ui) { $(".ui-dialog-titlebar-close").hide() },
+            height: 'auto',
+            width: '300px',
+            modal: true,
+        });
+    }
+
+    $("#btnClose").click(function () {
+        $("#create_form").dialog("close");
+    });
+
+    $("#btnCloseDel").click(function () {
+        $("#categoryIdEdit").val('');
+        $("#dialog_confirm_delete").dialog("close");
     });
 </script>

@@ -47,6 +47,44 @@ namespace DaNangZ.BusinessService.Business
                                      .ToList();
                     }
                 }
+                else if (sidx.Equals("InsAt"))
+                {
+                    if (sord.Equals("asc"))
+                    {
+                        list = uow.Repository<Category>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
+                                     .OrderBy(x => x.InsAt)
+                                     .Skip(pageSize * (pageNo - 1))
+                                     .Take(pageSize)
+                                     .ToList();
+                    }
+                    else
+                    {
+                        list = uow.Repository<Category>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
+                                     .OrderByDescending(x => x.InsAt)
+                                     .Skip(pageSize * (pageNo - 1))
+                                     .Take(pageSize)
+                                     .ToList();
+                    }
+                }
+                else if (sidx.Equals("InsBy"))
+                {
+                    if (sord.Equals("asc"))
+                    {
+                        list = uow.Repository<Category>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
+                                     .OrderBy(x => x.InsBy)
+                                     .Skip(pageSize * (pageNo - 1))
+                                     .Take(pageSize)
+                                     .ToList();
+                    }
+                    else
+                    {
+                        list = uow.Repository<Category>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
+                                     .OrderByDescending(x => x.InsBy)
+                                     .Skip(pageSize * (pageNo - 1))
+                                     .Take(pageSize)
+                                     .ToList();
+                    }
+                }
                 else if (sidx.Equals("UpdAt"))
                 {
                     if (sord.Equals("asc"))
@@ -137,19 +175,19 @@ namespace DaNangZ.BusinessService.Business
             }
         }
 
-        public Category Update(Category Category)
+        public Category Update(Category category)
         {
             try
             {
                 using (UnitOfWork uow = _unitOfWorkFactory.Create())
                 {
-                    Category existingCategory = uow.Repository<Category>().FirstOrDefault(o => o.Id == Category.Id);
+                    Category existingCategory = uow.Repository<Category>().FirstOrDefault(o => o.Id == category.Id);
 
                     if (existingCategory != null)
                     {
-                        existingCategory.CategoryName = Category.CategoryName;
-                        existingCategory.UpdBy = Category.UpdBy;
-                        existingCategory.UpdAt = Category.UpdAt;
+                        existingCategory.CategoryName = category.CategoryName;
+                        existingCategory.UpdBy = category.UpdBy;
+                        existingCategory.UpdAt = category.UpdAt;
 
                         uow.SaveChanges();
                     }

@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [DaNangZ]    Script Date: 12/18/2014 4:22:37 PM ******/
+/****** Object:  Database [DaNangZ]    Script Date: 12/24/2014 12:43:13 AM ******/
 CREATE DATABASE [DaNangZ]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -77,13 +77,13 @@ EXEC sys.sp_db_vardecimal_storage_format N'DaNangZ', N'ON'
 GO
 USE [DaNangZ]
 GO
-/****** Object:  Table [dbo].[Category]    Script Date: 12/18/2014 4:22:37 PM ******/
+/****** Object:  Table [dbo].[Category]    Script Date: 12/24/2014 12:43:16 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Category](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[CategoryName] [nvarchar](150) NOT NULL,
 	[StatusId] [nvarchar](50) NOT NULL,
 	[InsBy] [nvarchar](150) NOT NULL,
@@ -97,21 +97,26 @@ CREATE TABLE [dbo].[Category](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Entry]    Script Date: 12/18/2014 4:22:37 PM ******/
+/****** Object:  Table [dbo].[Entry]    Script Date: 12/24/2014 12:43:16 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Entry](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[CategoryId] [int] NOT NULL,
 	[EntrySubject] [text] NOT NULL,
 	[EntryContent] [text] NOT NULL,
+	[AvatarLink] [nvarchar](150) NULL,
+	[Summarize] [text] NOT NULL,
+	[Actived] [bit] NOT NULL,
 	[StatusId] [nvarchar](50) NOT NULL,
+	[OrderInHome] [int] NOT NULL,
 	[InsBy] [nvarchar](150) NOT NULL,
 	[InsAt] [datetime] NOT NULL,
 	[UpdBy] [nvarchar](150) NULL,
 	[UpdAt] [datetime] NULL,
+	[ViewedCount] [int] NOT NULL,
  CONSTRAINT [PK_Entry] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -119,7 +124,7 @@ CREATE TABLE [dbo].[Entry](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[UserProfile]    Script Date: 12/18/2014 4:22:37 PM ******/
+/****** Object:  Table [dbo].[UserProfile]    Script Date: 12/24/2014 12:43:16 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +147,7 @@ CREATE TABLE [dbo].[UserProfile](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_Membership]    Script Date: 12/18/2014 4:22:37 PM ******/
+/****** Object:  Table [dbo].[webpages_Membership]    Script Date: 12/24/2014 12:43:16 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +171,7 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_Roles]    Script Date: 12/18/2014 4:22:37 PM ******/
+/****** Object:  Table [dbo].[webpages_Roles]    Script Date: 12/24/2014 12:43:16 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -185,7 +190,7 @@ UNIQUE NONCLUSTERED
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_UsersInRoles]    Script Date: 12/18/2014 4:22:37 PM ******/
+/****** Object:  Table [dbo].[webpages_UsersInRoles]    Script Date: 12/24/2014 12:43:16 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

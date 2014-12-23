@@ -3,14 +3,14 @@
     text-align: center;
 }
 
-th {
+.th {
     background-color: #007233;
     color: #fff;
     font-weight: 500;
     border: 1px solid #ddd;
 }
 
-td {
+.td {
     border: 1px solid #ddd;
 }
 
@@ -35,7 +35,7 @@ td {
 }
 
 .button {
-    height: 30px;
+    height: 25px;
     width: 120px;
     background-color: #fff;
     font-size: 12px;
@@ -49,3 +49,59 @@ td {
         background-color: #007233;
         color: #fff;
     }
+
+.ui-dialog-titlebar
+{
+    color: #fff !important;
+    background: #007233 !important;
+    border-radius: 0px !important;
+    height: 35px;
+    text-align: center; 
+    padding-top: 5px;
+    height: 20px;
+    font-size: 12px;
+}
+
+.ui-dialog {
+    border-radius: 0px !important;
+    position: absolute !important;
+}
+
+.label_dialog {
+    padding-left: 5px;
+}
+
+/*Div Pager*/
+.div_pager
+{
+    height: 40px !important;
+}
+
+.ui-jqgrid .ui-pager-control
+{
+    padding-top: 5px !important;
+}
+
+.ui-state-default, .ui-widget-header
+{
+    background: #007233 !important;
+    color: #fff !important;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl
+{
+    border-radius: 0 !important;
+}
+
+.ui-jqgrid .ui-jqgrid-bdiv
+{
+    overflow-y: scroll !important;
+}
+
+.ui-pg-input{
+    width: auto !important;
+}
+
+.ui-jqgrid-view, .ui-jqgrid-bdiv{
+    height: 300px !important;
+}

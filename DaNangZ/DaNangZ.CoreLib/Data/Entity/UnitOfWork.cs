@@ -30,11 +30,11 @@ namespace DaNangZ.CoreLib.Data.Entity
 
             if (changeSet != null)
             {
-                var currentDateTime = DateTime.Now;
+                DateTime currentDateTime = DateTime.Now;
                 Type type;
                 //TODO get current username
-                string currentUsername = getCurrentUser().Identity.Name;
-                //string currentUsername = "admin";
+                //string currentUsername = getCurrentUser().Identity.Name;
+                string currentUsername = "admin";
 
                 foreach (var entry in changeSet.Where(c => c.State != EntityState.Unchanged))
                 {
@@ -42,6 +42,7 @@ namespace DaNangZ.CoreLib.Data.Entity
 
                     type.GetProperty(Constant.UpdAt).SetValue(entry.Entity, currentDateTime, null);
                     type.GetProperty(Constant.UpdBy).SetValue(entry.Entity, currentUsername, null);
+                    
                     if (entry.State == EntityState.Added)
                     {
                         type.GetProperty(Constant.InsAt).SetValue(entry.Entity, currentDateTime, null);

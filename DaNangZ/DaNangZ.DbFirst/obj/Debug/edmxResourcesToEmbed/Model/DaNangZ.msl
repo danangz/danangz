@@ -21,11 +21,16 @@
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="EntrySubject" ColumnName="EntrySubject" />
           <ScalarProperty Name="EntryContent" ColumnName="EntryContent" />
+          <ScalarProperty Name="AvatarLink" ColumnName="AvatarLink" />
+          <ScalarProperty Name="Summarize" ColumnName="Summarize" />
+          <ScalarProperty Name="Actived" ColumnName="Actived" />
           <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="OrderInHome" ColumnName="OrderInHome" />
           <ScalarProperty Name="InsBy" ColumnName="InsBy" />
           <ScalarProperty Name="InsAt" ColumnName="InsAt" />
           <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
           <ScalarProperty Name="UpdAt" ColumnName="UpdAt" />
+          <ScalarProperty Name="ViewedCount" ColumnName="ViewedCount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

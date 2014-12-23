@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DaNangZModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DaNangZModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="InsBy" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -21,15 +21,20 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="EntrySubject" Type="text" Nullable="false" />
           <Property Name="EntryContent" Type="text" Nullable="false" />
+          <Property Name="AvatarLink" Type="nvarchar" MaxLength="150" />
+          <Property Name="Summarize" Type="text" Nullable="false" />
+          <Property Name="Actived" Type="bit" Nullable="false" />
           <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderInHome" Type="int" Nullable="false" />
           <Property Name="InsBy" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="InsAt" Type="datetime" Nullable="false" />
           <Property Name="UpdBy" Type="nvarchar" MaxLength="150" />
           <Property Name="UpdAt" Type="datetime" />
+          <Property Name="ViewedCount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -132,12 +137,12 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DaNangZModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DaNangZModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="InsBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
@@ -149,15 +154,20 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="EntrySubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EntryContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AvatarLink" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Summarize" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Actived" Type="Boolean" Nullable="false" />
           <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderInHome" Type="Int32" Nullable="false" />
           <Property Name="InsBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="InsAt" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="UpdAt" Type="DateTime" Precision="3" />
+          <Property Name="ViewedCount" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -251,11 +261,16 @@
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="EntrySubject" ColumnName="EntrySubject" />
                 <ScalarProperty Name="EntryContent" ColumnName="EntryContent" />
+                <ScalarProperty Name="AvatarLink" ColumnName="AvatarLink" />
+                <ScalarProperty Name="Summarize" ColumnName="Summarize" />
+                <ScalarProperty Name="Actived" ColumnName="Actived" />
                 <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="OrderInHome" ColumnName="OrderInHome" />
                 <ScalarProperty Name="InsBy" ColumnName="InsBy" />
                 <ScalarProperty Name="InsAt" ColumnName="InsAt" />
                 <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
                 <ScalarProperty Name="UpdAt" ColumnName="UpdAt" />
+                <ScalarProperty Name="ViewedCount" ColumnName="ViewedCount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
