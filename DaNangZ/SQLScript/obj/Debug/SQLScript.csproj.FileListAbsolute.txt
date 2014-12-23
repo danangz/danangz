@@ -1,0 +1,4 @@
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\SQLScript\bin\Debug\SQLScript.dll
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\SQLScript\bin\Debug\SQLScript.pdb
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\SQLScript\obj\Debug\SQLScript.dll
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\SQLScript\obj\Debug\SQLScript.pdb

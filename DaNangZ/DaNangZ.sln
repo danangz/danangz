@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaNangZ.Web", "DaNangZ\DaNangZ.Web.csproj", "{A389248A-A3D0-4BDD-B20C-688321235DB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaNangZ.CoreLib", "DaNangZ.CoreLib\DaNangZ.CoreLib.csproj", "{DA94DB1C-B257-4C7C-AEE3-B45DD77F7F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaNangZ.DbFirst", "DaNangZ.DbFirst\DaNangZ.DbFirst.csproj", "{585C524C-4785-408E-9D0F-89D52E4634B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaNangZ.BusinessService", "DaNangZ.BusinessService\DaNangZ.BusinessService.csproj", "{6080D278-42EF-4284-9917-51DC21D567E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLScript", "SQLScript\SQLScript.csproj", "{4D7FFADB-547F-4BB2-AD71-AC46CC3A27A0}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://danangz.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DaNangZ\\DaNangZ.Web.csproj
+		SccProjectName1 = DaNangZ
+		SccLocalPath1 = DaNangZ
+		SccProjectUniqueName2 = DaNangZ.CoreLib\\DaNangZ.CoreLib.csproj
+		SccProjectName2 = DaNangZ.CoreLib
+		SccLocalPath2 = DaNangZ.CoreLib
+		SccProjectUniqueName3 = DaNangZ.DbFirst\\DaNangZ.DbFirst.csproj
+		SccProjectName3 = DaNangZ.DbFirst
+		SccLocalPath3 = DaNangZ.DbFirst
+		SccProjectUniqueName4 = DaNangZ.BusinessService\\DaNangZ.BusinessService.csproj
+		SccProjectName4 = DaNangZ.BusinessService
+		SccLocalPath4 = DaNangZ.BusinessService
+		SccProjectUniqueName5 = SQLScript\\SQLScript.csproj
+		SccProjectName5 = SQLScript
+		SccLocalPath5 = SQLScript
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A389248A-A3D0-4BDD-B20C-688321235DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A389248A-A3D0-4BDD-B20C-688321235DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A389248A-A3D0-4BDD-B20C-688321235DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A389248A-A3D0-4BDD-B20C-688321235DB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA94DB1C-B257-4C7C-AEE3-B45DD77F7F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA94DB1C-B257-4C7C-AEE3-B45DD77F7F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA94DB1C-B257-4C7C-AEE3-B45DD77F7F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA94DB1C-B257-4C7C-AEE3-B45DD77F7F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{585C524C-4785-408E-9D0F-89D52E4634B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{585C524C-4785-408E-9D0F-89D52E4634B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{585C524C-4785-408E-9D0F-89D52E4634B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585C524C-4785-408E-9D0F-89D52E4634B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6080D278-42EF-4284-9917-51DC21D567E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6080D278-42EF-4284-9917-51DC21D567E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6080D278-42EF-4284-9917-51DC21D567E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6080D278-42EF-4284-9917-51DC21D567E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7FFADB-547F-4BB2-AD71-AC46CC3A27A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7FFADB-547F-4BB2-AD71-AC46CC3A27A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7FFADB-547F-4BB2-AD71-AC46CC3A27A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7FFADB-547F-4BB2-AD71-AC46CC3A27A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

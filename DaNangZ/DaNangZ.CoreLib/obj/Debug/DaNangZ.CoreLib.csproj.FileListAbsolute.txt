@@ -1,0 +1,6 @@
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\DaNangZ.CoreLib\bin\Debug\DaNangZ.CoreLib.dll
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\DaNangZ.CoreLib\bin\Debug\DaNangZ.CoreLib.pdb
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.dll
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.xml
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.dll
+C:\Users\thanhvm\documents\visual studio 2013\Projects\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.pdb

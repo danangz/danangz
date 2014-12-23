@@ -1,0 +1,56 @@
+﻿@model List<DaNangZ.DbFirst.Model.Category>
+
+<input type="button" title="Add Category" value="Add Category" class="button"/>
+<br />
+<table>
+    <tr>
+        <th>
+            Category Id
+        </th>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Created At
+        </th>
+        <th>
+            Created By
+        </th>
+        <th>
+            Last Updated
+        </th>
+        <th>
+            Updated By
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem  => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdBy)
+            </td>
+            <td>
+                <img class="icon-edit" id='btnEdit' />
+                <img class="icon-delete" id='btnDelete' />
+            </td>
+        </tr>
+    }
+</table>
