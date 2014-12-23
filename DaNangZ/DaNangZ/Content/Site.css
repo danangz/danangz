@@ -121,9 +121,10 @@ header .content-wrapper {
 
 footer {
     clear: both;
-    background-color: #e2e2e2;
+    background-color: #007233;
     font-size: .8em;
-    height: 100px;
+    height: 50px;
+    color: #fff;
 }
 
 
@@ -331,7 +332,8 @@ aside {
 
 /* login page */
 #loginForm {
-    border-right: solid 2px #c8c8c8;
+    /*border-right: solid 2px #c8c8c8;*/
+    margin-top: 40px;
     float: left;
     width: 55%;
 }
@@ -354,6 +356,10 @@ aside {
 
     #loginForm input {
         width: 250px;
+    }
+
+    #loginForm input :active {
+        border-color: #007233;
     }
 
     #loginForm input[type="checkbox"],

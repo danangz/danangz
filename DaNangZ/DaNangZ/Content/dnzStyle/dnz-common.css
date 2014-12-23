@@ -1,20 +1,20 @@
-﻿table{
+﻿table {
     width: 100%;
     text-align: center;
 }
 
-th{
+th {
     background-color: #007233;
     color: #fff;
     font-weight: 500;
     border: 1px solid #ddd;
 }
 
-td{
+td {
     border: 1px solid #ddd;
 }
 
-.icon-edit{
+.icon-edit {
     height: 16px;
     width: 16px;
     background-image: url("../../Images/icon/edit.png");
@@ -24,7 +24,7 @@ td{
     margin-top: 5px;
 }
 
-.icon-delete{
+.icon-delete {
     height: 16px;
     width: 16px;
     background-image: url("../../Images/icon/delete.png");
@@ -34,12 +34,18 @@ td{
     margin-top: 5px;
 }
 
-input[type="submit"], input[type="button"], button{
+.button {
     height: 30px;
     width: 120px;
-    background-color: #ddd;
+    background-color: #fff;
     font-size: 12px;
     color: #007233;
     font-weight: bold;
     border: 1px solid #007233;
 }
+
+    .button:hover {
+        cursor: pointer;
+        background-color: #007233;
+        color: #fff;
+    }

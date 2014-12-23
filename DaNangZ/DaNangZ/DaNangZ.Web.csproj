@@ -257,6 +257,8 @@
     <Content Include="Images\icon\personal.png" />
     <Content Include="Images\icon\view.png" />
     <Content Include="Images\image\dnz-logo.png" />
+    <Content Include="Images\image\newspaper.jpg" />
+    <Content Include="Images\image\settings.png" />
     <Content Include="Scripts\i18n\grid.locale-ar.js" />
     <Content Include="Scripts\i18n\grid.locale-bg.js" />
     <Content Include="Scripts\i18n\grid.locale-bg1251.js" />
