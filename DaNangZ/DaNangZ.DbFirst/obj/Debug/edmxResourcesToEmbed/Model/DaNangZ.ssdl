@@ -18,11 +18,11 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CategoryId" Type="int" Nullable="false" />
-    <Property Name="EntrySubject" Type="text" Nullable="false" />
-    <Property Name="EntryContent" Type="text" Nullable="false" />
+    <Property Name="EntrySubject" Type="ntext" Nullable="false" />
+    <Property Name="EntryContent" Type="ntext" Nullable="false" />
     <Property Name="AvatarLink" Type="nvarchar" MaxLength="150" />
-    <Property Name="Summarize" Type="text" Nullable="false" />
-    <Property Name="Actived" Type="bit" Nullable="false" />
+    <Property Name="Summarize" Type="ntext" Nullable="false" />
+    <Property Name="Actived" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="OrderInHome" Type="int" Nullable="false" />
     <Property Name="InsBy" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -87,6 +87,18 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Entry_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Entry" Type="Self.Entry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Entry">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="UsersInRoleRole">
     <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
     <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
@@ -119,6 +131,10 @@
     <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Entry_Category" Association="Self.FK_Entry_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Entry" EntitySet="Entry" />
+    </AssociationSet>
     <AssociationSet Name="UsersInRoleRole" Association="Self.UsersInRoleRole">
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
       <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />

@@ -34,6 +34,10 @@
     margin-top: 5px;
 }
 
+.icon-edit, .icon-delete:hover{
+    cursor: pointer;
+}
+
 .button {
     height: 25px;
     width: 120px;
@@ -96,6 +100,7 @@
 .ui-jqgrid .ui-jqgrid-bdiv
 {
     overflow-y: scroll !important;
+    overflow-wrap: break-word;
 }
 
 .ui-pg-input{

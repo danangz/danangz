@@ -11,5 +11,6 @@ namespace DaNangZ.BusinessService
     public interface IDaNangZService : IService
     {
         ICategoryBusiness Category { get; }
+        IEntryBusiness Entry { get; }
     }
 }

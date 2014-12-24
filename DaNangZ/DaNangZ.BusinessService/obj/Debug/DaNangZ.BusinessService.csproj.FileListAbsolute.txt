@@ -31,3 +31,14 @@ C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNan
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\obj\Debug\DaNangZ.BusinessService.csprojResolveAssemblyReference.cache
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\obj\Debug\DaNangZ.BusinessService.dll
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\obj\Debug\DaNangZ.BusinessService.pdb
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\bin\Debug\DaNangZ.BusinessService.dll
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\bin\Debug\DaNangZ.BusinessService.pdb
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\bin\Debug\DaNangZ.CoreLib.dll
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\bin\Debug\DaNangZ.DbFirst.dll
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\bin\Debug\EntityFramework.dll
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\bin\Debug\DaNangZ.CoreLib.pdb
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\bin\Debug\DaNangZ.DbFirst.pdb
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\bin\Debug\EntityFramework.xml
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\obj\Debug\DaNangZ.BusinessService.csprojResolveAssemblyReference.cache
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\obj\Debug\DaNangZ.BusinessService.dll
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.BusinessService\obj\Debug\DaNangZ.BusinessService.pdb

@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [DaNangZ]    Script Date: 12/24/2014 12:43:13 AM ******/
+/****** Object:  Database [DaNangZ]    Script Date: 12/24/2014 12:05:05 PM ******/
 CREATE DATABASE [DaNangZ]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -77,7 +77,7 @@ EXEC sys.sp_db_vardecimal_storage_format N'DaNangZ', N'ON'
 GO
 USE [DaNangZ]
 GO
-/****** Object:  Table [dbo].[Category]    Script Date: 12/24/2014 12:43:16 AM ******/
+/****** Object:  Table [dbo].[Category]    Script Date: 12/24/2014 12:05:05 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,7 +97,7 @@ CREATE TABLE [dbo].[Category](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Entry]    Script Date: 12/24/2014 12:43:16 AM ******/
+/****** Object:  Table [dbo].[Entry]    Script Date: 12/24/2014 12:05:05 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -105,11 +105,11 @@ GO
 CREATE TABLE [dbo].[Entry](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[CategoryId] [int] NOT NULL,
-	[EntrySubject] [text] NOT NULL,
-	[EntryContent] [text] NOT NULL,
+	[EntrySubject] [ntext] NOT NULL,
+	[EntryContent] [ntext] NOT NULL,
 	[AvatarLink] [nvarchar](150) NULL,
-	[Summarize] [text] NOT NULL,
-	[Actived] [bit] NOT NULL,
+	[Summarize] [ntext] NOT NULL,
+	[Actived] [nvarchar](30) NOT NULL,
 	[StatusId] [nvarchar](50) NOT NULL,
 	[OrderInHome] [int] NOT NULL,
 	[InsBy] [nvarchar](150) NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[Entry](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[UserProfile]    Script Date: 12/24/2014 12:43:16 AM ******/
+/****** Object:  Table [dbo].[UserProfile]    Script Date: 12/24/2014 12:05:05 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -147,7 +147,7 @@ CREATE TABLE [dbo].[UserProfile](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_Membership]    Script Date: 12/24/2014 12:43:16 AM ******/
+/****** Object:  Table [dbo].[webpages_Membership]    Script Date: 12/24/2014 12:05:05 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +171,7 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_Roles]    Script Date: 12/24/2014 12:43:16 AM ******/
+/****** Object:  Table [dbo].[webpages_Roles]    Script Date: 12/24/2014 12:05:05 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -190,7 +190,7 @@ UNIQUE NONCLUSTERED
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_UsersInRoles]    Script Date: 12/24/2014 12:43:16 AM ******/
+/****** Object:  Table [dbo].[webpages_UsersInRoles]    Script Date: 12/24/2014 12:05:05 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -209,6 +209,11 @@ GO
 ALTER TABLE [dbo].[webpages_Membership] ADD  DEFAULT ((0)) FOR [IsConfirmed]
 GO
 ALTER TABLE [dbo].[webpages_Membership] ADD  DEFAULT ((0)) FOR [PasswordFailuresSinceLastSuccess]
+GO
+ALTER TABLE [dbo].[Entry]  WITH CHECK ADD  CONSTRAINT [FK_Entry_Category] FOREIGN KEY([CategoryId])
+REFERENCES [dbo].[Category] ([Id])
+GO
+ALTER TABLE [dbo].[Entry] CHECK CONSTRAINT [FK_Entry_Category]
 GO
 ALTER TABLE [dbo].[webpages_UsersInRoles]  WITH CHECK ADD  CONSTRAINT [UsersInRoleRole] FOREIGN KEY([RoleId])
 REFERENCES [dbo].[webpages_Roles] ([RoleId])

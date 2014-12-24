@@ -1,15 +1,15 @@
-﻿<input type="button" id="btnAdd" title="Thêm danh mục" value="Thêm danh mục" class="button" />
+﻿<input type="button" id="btnAdd" title="Thêm bài viết" value="Thêm bài viết" class="button" />
 <br />
 <br />
 
 @Html.AntiForgeryToken()
-<div id="create_form" style="display: none; font-size:12px" title="Thêm danh mục">
+<div id="create_form" style="display: none; font-size:12px" title="Thêm Danh mục">
     <table>
         <tr>
             <td>
                 @Html.Hidden("categoryIdEdit")
                 @Html.Hidden("categoryNameOld")
-                @Html.Label("Tên danh mục", new { @style = "padding-left: 10px; padding-top: 3px; float: left; width: 40%;" })
+                @Html.Label("Tên Danh mục", new { @style = "padding-left: 10px; padding-top: 3px; float: left; width: 40%;" })
             </td>
         </tr>
         <tr>
@@ -25,7 +25,6 @@
         </tr>
     </table>
 </div>
-
 <div id="dialog_confirm_delete" title="Delete Asset" style="display: none; font-size:12px">
     <table>
         <tr>
@@ -45,7 +44,31 @@
 
 <table id="grid"></table>
 <div id="pager" class="div_pager"></div>
-
+<br />
+<table style="width: auto;">
+    <tr>
+        <td>
+            <img src="~/Images/icon/green.png" style="height: 16px; width: 16px;"/>
+        </td>
+        <td>
+            Bài viết đang đăng trên trang chủ
+        </td>
+        <td>&nbsp;&nbsp;</td>
+        <td>
+            <img src="~/Images/icon/blue.png" style="height: 16px; width: 16px;" />
+        </td>
+        <td>
+            Bài viết chưa được đăng
+        </td>
+        <td>&nbsp;&nbsp;</td>
+        <td>
+            <img src="~/Images/icon/orange.png" style="height: 16px; width: 16px;" />
+        </td>
+        <td>
+            Bài viết đã được đăng
+        </td>
+    </tr>
+</table>
 <script>
 
     $("#btnAdd").click(function () {
@@ -56,7 +79,7 @@
             height: 'auto',
             width: '300px',
             modal: true,
-            title: 'Thêm danh mục',
+            title: 'Thêm Danh mục',
         });
     });
 
@@ -140,17 +163,17 @@
     });
 
     jQuery("#grid").jqGrid({
-        url: '/Category/GetAll',
+        url: '/Entry/GetAll',
         datatype: "json",
-        colNames: ['Id', 'Tên danh Mục', 'Thời gian thêm', 'Thêm bởi', 'Thời gian sửa', 'Sửa bởi', ''],
+        colNames: ['Id', 'Tên Danh Mục', 'Tiêu đề', 'Tình trạng đăng', 'Thời gian thêm', 'Thêm bởi', ''],
         colModel: [
             { name: 'Id', align: "center", key: true, hidden: true, sortable: true },
-            { name: 'CategoryName', width: 50, editable: true, align: "center" },
+            { name: 'CategoryId', width: 25, editable: true, align: "center" },
+            { name: 'EntrySubject', width: 70, editable: true, align: "center" },
+            { name: 'Actived', width: 25, editable: true, align: "center" },
             { name: 'InsAt', width: 30, align: "center", formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y h:i A" }, formatter: "date" },
-            { name: 'InsBy', width: 40, align: "center" },
-            { name: 'UpdAt', width: 30, align: "center", formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y h:i A" }, formatter: "date" },
-            { name: 'UpdBy', width: 40, align: "center" },
-            { name: 'Action', width: 20, align: "center", sortable: false, clickable: false },
+            { name: 'InsBy', width: 25, align: "center" },
+            { name: 'Action', width: 20, align: "center", sortable: false },
         ],
         rowNum: 20,
         rowList: false,
@@ -188,7 +211,7 @@
             height: 'auto',
             width: '300px',
             modal: true,
-            title: 'Sửa danh mục',
+            title: 'Sửa Danh mục',
         });
     };
 

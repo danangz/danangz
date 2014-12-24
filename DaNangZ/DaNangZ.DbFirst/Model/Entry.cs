@@ -20,7 +20,7 @@ namespace DaNangZ.DbFirst.Model
         public string EntryContent { get; set; }
         public string AvatarLink { get; set; }
         public string Summarize { get; set; }
-        public bool Actived { get; set; }
+        public string Actived { get; set; }
         public string StatusId { get; set; }
         public int OrderInHome { get; set; }
         public string InsBy { get; set; }
@@ -28,5 +28,7 @@ namespace DaNangZ.DbFirst.Model
         public string UpdBy { get; set; }
         public Nullable<System.DateTime> UpdAt { get; set; }
         public int ViewedCount { get; set; }
+    
+        public virtual Category Category { get; set; }
     }
 }

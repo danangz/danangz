@@ -23,11 +23,11 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
-          <Property Name="EntrySubject" Type="text" Nullable="false" />
-          <Property Name="EntryContent" Type="text" Nullable="false" />
+          <Property Name="EntrySubject" Type="ntext" Nullable="false" />
+          <Property Name="EntryContent" Type="ntext" Nullable="false" />
           <Property Name="AvatarLink" Type="nvarchar" MaxLength="150" />
-          <Property Name="Summarize" Type="text" Nullable="false" />
-          <Property Name="Actived" Type="bit" Nullable="false" />
+          <Property Name="Summarize" Type="ntext" Nullable="false" />
+          <Property Name="Actived" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OrderInHome" Type="int" Nullable="false" />
           <Property Name="InsBy" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -92,6 +92,18 @@
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Entry_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Entry" Type="Self.Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entry">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="UsersInRoleRole">
           <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
           <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
@@ -124,6 +136,10 @@
           <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Entry_Category" Association="Self.FK_Entry_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Entry" EntitySet="Entry" />
+          </AssociationSet>
           <AssociationSet Name="UsersInRoleRole" Association="Self.UsersInRoleRole">
             <End Role="webpages_Roles" EntitySet="webpages_Roles" />
             <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
@@ -149,6 +165,7 @@
           <Property Name="InsAt" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="UpdAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Entries" Relationship="Self.FK_Entry_Category" FromRole="Category" ToRole="Entry" />
         </EntityType>
         <EntityType Name="Entry">
           <Key>
@@ -156,11 +173,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="EntrySubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EntryContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EntrySubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AvatarLink" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Summarize" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Actived" Type="Boolean" Nullable="false" />
+          <Property Name="Summarize" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Actived" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OrderInHome" Type="Int32" Nullable="false" />
           <Property Name="InsBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
@@ -168,6 +185,7 @@
           <Property Name="UpdBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="UpdAt" Type="DateTime" Precision="3" />
           <Property Name="ViewedCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Entry_Category" FromRole="Entry" ToRole="Category" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -219,6 +237,18 @@
           <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="UserProfiles" Relationship="Self.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
         </EntityType>
+        <Association Name="FK_Entry_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Entry" Type="Self.Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Entry">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="webpages_UsersInRoles">
           <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="*" />
           <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
@@ -230,6 +260,10 @@
           <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
           <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />
           <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" />
+          <AssociationSet Name="FK_Entry_Category" Association="Self.FK_Entry_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Entry" EntitySet="Entries" />
+          </AssociationSet>
           <AssociationSet Name="webpages_UsersInRoles" Association="Self.webpages_UsersInRoles">
             <End Role="webpages_Roles" EntitySet="webpages_Roles" />
             <End Role="UserProfile" EntitySet="UserProfiles" />

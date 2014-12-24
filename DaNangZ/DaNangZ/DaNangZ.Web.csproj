@@ -198,6 +198,7 @@
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -248,13 +249,19 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\icon\add.png" />
+    <Content Include="Images\icon\blue.png" />
     <Content Include="Images\icon\delete.png" />
     <Content Include="Images\icon\edit.png" />
     <Content Include="Images\icon\favicon.ico" />
+    <Content Include="Images\icon\green.png" />
+    <Content Include="Images\icon\grey.png" />
     <Content Include="Images\icon\home-icon.png" />
     <Content Include="Images\icon\menu.png" />
+    <Content Include="Images\icon\orange.png" />
     <Content Include="Images\icon\personal.png" />
+    <Content Include="Images\icon\red.png" />
     <Content Include="Images\icon\view.png" />
+    <Content Include="Images\icon\yellow.png" />
     <Content Include="Images\image\dnz-logo.png" />
     <Content Include="Images\image\newspaper.jpg" />
     <Content Include="Images\image\settings.png" />
@@ -345,6 +352,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Scripts\jquery-1.11.1.min.map" />
+    <Content Include="Views\Entry\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
