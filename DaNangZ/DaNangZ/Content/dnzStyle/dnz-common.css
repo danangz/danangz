@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
     border: none !important;
     background-color: transparent;
-    margin-top: 5px;
+    margin-top: 5px;2b579a
 }
 
 .icon-delete {
@@ -32,21 +32,21 @@
     width: 120px;
     background-color: #fff;
     font-size: 12px;
-    color: #007233;
+    color: #2b579a;
     font-weight: bold;
-    border: 1px solid #007233;
+    border: 1px solid #2b579a;
 }
 
     .button:hover {
         cursor: pointer;
-        background-color: #007233;
+        background-color: #2b579a;
         color: #fff;
     }
 
 .ui-dialog-titlebar
 {
     color: #fff !important;
-    background: #007233 !important;
+    background: #2b579a !important;
     border-radius: 0px !important;
     height: 35px;
     text-align: center; 
@@ -77,7 +77,7 @@
 
 .ui-state-default, .ui-widget-header
 {
-    background: #007233 !important;
+    background: #2b579a !important;
     color: #fff !important;
 }
 

@@ -7,7 +7,7 @@
 
 body {
     background-color: #fff;
-    border-top: solid 10px #007233;
+    border-top: solid 10px #2b579a;
     color: #333;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
@@ -122,7 +122,7 @@ header .content-wrapper {
 
 footer {
     clear: both;
-    background-color: #007233;
+    background-color: #2b579a;
     font-size: .8em;
     height: 30px;
     color: #fff;
@@ -203,7 +203,7 @@ ul#menu {
         }
 
         ul#menu li a:hover {
-            color: #007233;
+            color: #2b579a;
             text-decoration: none;
         }
 
@@ -360,7 +360,7 @@ aside {
     }
 
     #loginForm input :active {
-        border-color: #007233;
+        border-color: #2b579a;
     }
 
     #loginForm input[type="checkbox"],

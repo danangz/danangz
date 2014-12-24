@@ -1,0 +1,106 @@
+﻿<script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
+
+<input type="button" id="btnClose" title="Trở về" value="Trở về" class="button" />
+<br />
+
+@Html.AntiForgeryToken()
+<div id="create_form" style="font-size: 12px;">
+    <table>
+        <tr>
+            <td style="width: 70px;">
+                @Html.Hidden("entryIdEdit")
+                @Html.Label("Danh mục")
+            </td>
+            <td>
+                @Html.DropDownList("categoryName", new SelectList(ViewBag.CategoryList, "Value", "Text"), "", new { @style = "width: 250px; height: 30px; float: left;" })
+            </td>
+            <td>&nbsp;&nbsp;</td>
+            <td style="width: 95px;">
+                @Html.Label("Hình đại diện")
+            </td>
+            <td>
+                <input id="avatarLink" type="file"></input>
+            </td>
+            <td>&nbsp;&nbsp;</td>
+            <td style="width: 70px;">
+                @Html.Label("Đăng bài")
+            </td>
+            <td>
+                @Html.CheckBox("actived", new { @style = "float: left;" })
+            </td>
+            <td>&nbsp;&nbsp;</td>
+            <td style="width: 100px;">
+                @Html.Label("Ví trí bài đăng")
+            </td>
+            <td>
+                @Html.DropDownList("orderNumber", new SelectList(ViewBag.OrderNumber, "Value", "Text"), "", new { @style = "width: auto; float: left;" })
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td style="width: 70px;">
+                @Html.Label("Tiêu đề")
+            </td>
+            <td style="width: 400px;">
+                @Html.TextArea("entrySubject", new { @style = "width: 100%; float: left;" })
+            </td>
+            <td>&nbsp;&nbsp;</td>
+            <td style="width: 70px;">
+                @Html.Label("Tóm tắt")
+            </td>
+            <td style="width:400px;">
+                @Html.TextArea("summarize", new { @style = "width: 96%; float: left;" })
+            </td>
+        </tr>
+    </table>
+
+    <table style="width: 100%; text-align: left;">
+        <tr>
+            <td style="padding-left: 7px;">@Html.Label("Nội dung")</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextArea("entryContent", new { @style = "width: 100%; float: left;", @class="ckeditor", @cols="20", @id="entryContent", @name="editor", @rows="2" })
+            </td>
+        </tr>
+    </table>
+    <input id="btnOkAndContinuos" type="button" value="Lưu & Thêm mới" class="button" style="float: right; margin-right: 10px; width: auto;" />
+    <input id="btnOkAndReturn" type="button" value="Lưu & Trở về" class="button" style="float: right; margin-right: 10px; width: auto;" />
+</div>
+<script>
+    $("#btnClose").click(function () {
+        location.href = '@Url.Content("~/Entry")';
+    });
+
+    $("#btnOkAndReturn").click(function () {
+        var content = CKEDITOR.instances['entryContent'].getData();
+        var requestData = {
+            __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+            categoryId: $('#categoryName').val(),
+            avatarLink: $('#avatarLink').val(),
+            actived: $('#actived').prop('checked'),
+            orderNumber: $('#orderNumber').val(),
+            entrySubject: $('#entrySubject').val(),
+            entryContent: content,
+            summarize: $('#summarize').val(),
+        };
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("AddEntry", "Entry")',
+            async: false,
+            data: requestData,
+            dataType: "json",
+            timeout: 5000,
+            success: function (response) {
+                if (response.success == false) {
+                }
+                else {
+                    location.href = '@Url.Content("~/Entry")';
+                    $("#grid").trigger("reloadGrid");
+                }
+            },
+        });
+    });
+</script>

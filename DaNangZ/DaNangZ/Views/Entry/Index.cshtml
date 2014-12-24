@@ -1,69 +1,14 @@
-﻿<input type="button" id="btnAdd" title="Thêm bài viết" value="Thêm bài viết" class="button" />
+﻿<script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
+
+<input type="button" id="btnAdd" title="Thêm bài viết" value="Thêm bài viết" class="button" />
 <br />
 <br />
 @Html.AntiForgeryToken()
-<div id="create_form" style="display: none; font-size: 12px;">
-    <div id="left-form" style="width: 40%; display: inline-block">
-        <table style="text-align: left;">
-            <tr>
-                <td>
-                    @Html.Hidden("entryIdEdit")
-                    @Html.Label("Danh mục")
-                </td>
-                <td colspan="3">
-                    @Html.DropDownList("categoryName", new SelectList(ViewBag.CategoryList, "Value", "Text"), "", new { @style = "width: 100%; float: left;" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.Label("Hình đại diện")
-                </td>
-                <td colspan="3">
-                    <input type="file"></input>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.Label("Tiêu đề")
-                </td>
-                <td colspan="3">
-                    @Html.TextArea("entrySubject", new { @style = "width: 96%; float: left;" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.Label("Tóm tắt")
-                </td>
-                <td colspan="3">
-                    @Html.TextArea("summarize", new { @style = "width: 96%; float: left;" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.Label("Đăng bài")
-                </td>
-                <td>
-                    @Html.CheckBox("active", new { @style = "float: left;" })
-                </td>
-                <td style="width: 110px;">
-                    @Html.Label("Ví trí bài đăng")
-                </td>
-                <td>
-                    @Html.DropDownList("orderNumber", new SelectList(ViewBag.OrderNumber, "Value", "Text"), "", new { @style = "width: auto; float: left;" })
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div id="right-form" style="float: right; width: 50%; display: inline-block">
-        <input id="btnClose" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
-        <input id="btnOk" type="button" value="Thêm" class="button" style="float: right; margin-right: 10px; width: 70px;" />
-    </div>
-</div>
-
 <div id="dialog_confirm_delete" title="Delete Asset" style="display: none; font-size:12px">
     <table>
         <tr>
             <td>
+                @Html.Hidden("entryIdEdit")
                 <div id="message_confirm" style="padding-top: 5px;">Bạn có chắc chắn muốn xóa danh mục này không?</div>
             </td>
         </tr>
@@ -107,76 +52,22 @@
 <script>
 
     $("#btnAdd").click(function () {
-        $("#create_form").show();
+        location.href = '@Url.Content("~/Entry/AddEntryPage")';
     });
 
     $("#btnClose").click(function () {
         $("#create_form").hide();
     });
 
-
-    $("#btnOk").click(function () {
-        if ($('#categoryIdEdit').val().length == 0) {
-            var requestData = {
-                __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
-                categoryName: $("#categoryName").val()
-            };
-            $.ajax({
-                cache: false,
-                type: "POST",
-                url: '@Url.Action("AddCategory", "Category")',
-                async: false,
-                data: requestData,
-                dataType: "json",
-                timeout: 5000,
-                success: function (response) {
-                    if (response.success == false) {
-                    }
-                    else {
-                        $("#categoryName").val('');
-                        $("#create_form").dialog("close");
-                        $("#grid").trigger("reloadGrid");
-                    }
-                },
-            });
-        }
-        else {
-            var requestData = {
-                __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
-                categoryId: $('#categoryIdEdit').val(),
-                categoryNameNew: $("#categoryName").val()
-            };
-            $.ajax({
-                cache: false,
-                type: "POST",
-                url: '@Url.Action("EditCategory", "Category")',
-                async: false,
-                data: requestData,
-                dataType: "json",
-                timeout: 5000,
-                success: function (response) {
-                    if (response.success == false) {
-                    }
-                    else {
-                        $("#categoryName").val('');
-                        $('#categoryIdEdit').val('');
-                        $("#create_form").dialog("close");
-                        $("#grid").trigger("reloadGrid");
-                    }
-                },
-            });
-        }
-    });
-
     $("#btnOkDel").click(function () {
         var requestData = {
             __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
-            categoryId: $("#categoryIdEdit").val()
+            entryId: $("#entryIdEdit").val()
         };
         $.ajax({
             cache: false,
             type: "POST",
-            url: '@Url.Action("DeleteCategory", "Category")',
+            url: '@Url.Action("DeleteEntry", "Entry")',
             async: false,
             data: requestData,
             dataType: "json",
@@ -198,11 +89,11 @@
         colNames: ['Id', 'Tên Danh Mục', 'Tiêu đề', 'Tình trạng đăng', 'Thời gian thêm', 'Thêm bởi', ''],
         colModel: [
             { name: 'Id', align: "center", key: true, hidden: true, sortable: true },
-            { name: 'CategoryId', width: 25, editable: true, align: "center" },
+            { name: 'CategoryId', width: 20, editable: true, align: "center" },
             { name: 'EntrySubject', width: 70, editable: true, align: "center" },
-            { name: 'Actived', width: 25, editable: true, align: "center" },
-            { name: 'InsAt', width: 30, align: "center", formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y h:i A" }, formatter: "date" },
-            { name: 'InsBy', width: 25, align: "center" },
+            { name: 'Actived', width: 20, editable: true, align: "center" },
+            { name: 'InsAt', width: 20, align: "center", formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y h:i A" }, formatter: "date" },
+            { name: 'InsBy', width: 20, align: "center" },
             { name: 'Action', width: 20, align: "center", sortable: false },
         ],
         rowNum: 20,
@@ -245,7 +136,7 @@
     };
 
     function Delete(id) {
-        $("#categoryIdEdit").val(id);
+        $("#entryIdEdit").val(id);
         $("#dialog_confirm_delete").dialog({
             closeOnEscape: false,
             open: function (event, ui) { $(".ui-dialog-titlebar-close").hide() },
@@ -260,7 +151,7 @@
     });
 
     $("#btnCloseDel").click(function () {
-        $("#categoryIdEdit").val('');
+        $("#entryIdEdit").val('');
         $("#dialog_confirm_delete").dialog("close");
     });
 </script>
