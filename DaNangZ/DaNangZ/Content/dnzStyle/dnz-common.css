@@ -1,17 +1,6 @@
 ﻿table {
-    width: 100%;
+    width: auto;
     text-align: center;
-}
-
-.th {
-    background-color: #007233;
-    color: #fff;
-    font-weight: 500;
-    border: 1px solid #ddd;
-}
-
-.td {
-    border: 1px solid #ddd;
 }
 
 .icon-edit {

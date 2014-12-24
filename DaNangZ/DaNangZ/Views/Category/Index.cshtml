@@ -1,20 +1,18 @@
 ﻿<input type="button" id="btnAdd" title="Thêm danh mục" value="Thêm danh mục" class="button" />
 <br />
 <br />
-
 @Html.AntiForgeryToken()
 <div id="create_form" style="display: none; font-size:12px" title="Thêm danh mục">
     <table>
         <tr>
             <td>
                 @Html.Hidden("categoryIdEdit")
-                @Html.Hidden("categoryNameOld")
-                @Html.Label("Tên danh mục", new { @style = "padding-left: 10px; padding-top: 3px; float: left; width: 40%;" })
+                @Html.Label("Tên danh mục", new { @style = "padding-left: 10px; padding-top: 3px; float: left; width: auto;" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.TextBox("categoryName", "", new { @style = "width: 90%; margin-left: 1px;" })
+                @Html.TextBox("categoryName", "", new { @style = "width: 270px; margin-left: 5px;" })
             </td>
         </tr>
         <tr>
@@ -25,7 +23,6 @@
         </tr>
     </table>
 </div>
-
 <div id="dialog_confirm_delete" title="Xóa danh mục" style="display: none; font-size:12px">
     <table>
         <tr>
@@ -89,7 +86,6 @@
             var requestData = {
                 __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
                 categoryId: $('#categoryIdEdit').val(),
-                categoryNameOld: $("#categoryNameOld").val(),
                 categoryNameNew: $("#categoryName").val()
             };
             $.ajax({
@@ -106,7 +102,6 @@
                     else {
                         $("#categoryName").val('');
                         $('#categoryIdEdit').val('');
-                        $("#categoryNameOld").val('');
                         $("#create_form").dialog("close");
                         $("#grid").trigger("reloadGrid");
                     }
@@ -180,7 +175,6 @@
 
     function Edit(id, cateName) {
         $("#categoryIdEdit").val(id);
-        $("#categoryNameOld").val(cateName)
         $('#categoryName').val(cateName);
         $("#create_form").dialog({
             closeOnEscape: false,

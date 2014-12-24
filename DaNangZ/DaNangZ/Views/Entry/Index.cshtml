@@ -1,30 +1,65 @@
 ﻿<input type="button" id="btnAdd" title="Thêm bài viết" value="Thêm bài viết" class="button" />
 <br />
 <br />
-
 @Html.AntiForgeryToken()
-<div id="create_form" style="display: none; font-size:12px" title="Thêm Danh mục">
-    <table>
-        <tr>
-            <td>
-                @Html.Hidden("categoryIdEdit")
-                @Html.Hidden("categoryNameOld")
-                @Html.Label("Tên Danh mục", new { @style = "padding-left: 10px; padding-top: 3px; float: left; width: 40%;" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.TextBox("categoryName", "", new { @style = "width: 90%; margin-left: 1px;" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input id="btnClose" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
-                <input id="btnOk" type="button" value="Thêm" class="button" style="float: right; margin-right: 10px; width: 70px;" />
-            </td>
-        </tr>
-    </table>
+<div id="create_form" style="display: none; font-size: 12px;">
+    <div id="left-form" style="width: 40%; display: inline-block">
+        <table style="text-align: left;">
+            <tr>
+                <td>
+                    @Html.Hidden("entryIdEdit")
+                    @Html.Label("Danh mục")
+                </td>
+                <td colspan="3">
+                    @Html.DropDownList("categoryName", new SelectList(ViewBag.CategoryList, "Value", "Text"), "", new { @style = "width: 100%; float: left;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Hình đại diện")
+                </td>
+                <td colspan="3">
+                    <input type="file"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Tiêu đề")
+                </td>
+                <td colspan="3">
+                    @Html.TextArea("entrySubject", new { @style = "width: 96%; float: left;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Tóm tắt")
+                </td>
+                <td colspan="3">
+                    @Html.TextArea("summarize", new { @style = "width: 96%; float: left;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Đăng bài")
+                </td>
+                <td>
+                    @Html.CheckBox("active", new { @style = "float: left;" })
+                </td>
+                <td style="width: 110px;">
+                    @Html.Label("Ví trí bài đăng")
+                </td>
+                <td>
+                    @Html.DropDownList("orderNumber", new SelectList(ViewBag.OrderNumber, "Value", "Text"), "", new { @style = "width: auto; float: left;" })
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="right-form" style="float: right; width: 50%; display: inline-block">
+        <input id="btnClose" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+        <input id="btnOk" type="button" value="Thêm" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+    </div>
 </div>
+
 <div id="dialog_confirm_delete" title="Delete Asset" style="display: none; font-size:12px">
     <table>
         <tr>
@@ -45,10 +80,10 @@
 <table id="grid"></table>
 <div id="pager" class="div_pager"></div>
 <br />
-<table style="width: auto;">
+<table>
     <tr>
         <td>
-            <img src="~/Images/icon/green.png" style="height: 16px; width: 16px;"/>
+            <img src="~/Images/icon/green.png" style="height: 16px; width: 16px;" />
         </td>
         <td>
             Bài viết đang đăng trên trang chủ
@@ -72,16 +107,13 @@
 <script>
 
     $("#btnAdd").click(function () {
-        $("#categoryName").val('');
-        $("#create_form").dialog({
-            closeOnEscape: false,
-            open: function (event, ui) { $(".ui-dialog-titlebar-close").hide() },
-            height: 'auto',
-            width: '300px',
-            modal: true,
-            title: 'Thêm Danh mục',
-        });
+        $("#create_form").show();
     });
+
+    $("#btnClose").click(function () {
+        $("#create_form").hide();
+    });
+
 
     $("#btnOk").click(function () {
         if ($('#categoryIdEdit').val().length == 0) {
@@ -112,7 +144,6 @@
             var requestData = {
                 __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
                 categoryId: $('#categoryIdEdit').val(),
-                categoryNameOld: $("#categoryNameOld").val(),
                 categoryNameNew: $("#categoryName").val()
             };
             $.ajax({
@@ -129,7 +160,6 @@
                     else {
                         $("#categoryName").val('');
                         $('#categoryIdEdit').val('');
-                        $("#categoryNameOld").val('');
                         $("#create_form").dialog("close");
                         $("#grid").trigger("reloadGrid");
                     }
@@ -203,7 +233,6 @@
 
     function Edit(id, cateName) {
         $("#categoryIdEdit").val(id);
-        $("#categoryNameOld").val(cateName)
         $('#categoryName').val(cateName);
         $("#create_form").dialog({
             closeOnEscape: false,

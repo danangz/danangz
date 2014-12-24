@@ -1,4 +1,5 @@
 ﻿using DaNangZ.BusinessService;
+using DaNangZ.DbFirst.Model;
 using DaNangZ.Web.Common;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,26 @@ namespace DaNangZ.Web.Controllers
 
         public ActionResult Index()
         {
+            var cateList = _dnZService.Category.GetAll().ToList();
+
+            List<SelectListItem> categories = new List<SelectListItem>();
+
+            foreach(Category c in cateList)
+            {
+                categories.Add(new SelectListItem { Text = c.CategoryName, Value = c.Id.ToString() });
+            }
+
+            ViewBag.CategoryList = categories;
+
+            List<SelectListItem> orderNumber = new List<SelectListItem>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                orderNumber.Add(new SelectListItem { Text = i.ToString(), Value = i.ToString() });
+            }
+
+            ViewBag.OrderNumber = orderNumber;
+
             return View();
         }
 
