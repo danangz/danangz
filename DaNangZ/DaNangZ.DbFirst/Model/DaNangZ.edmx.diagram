@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4fca2ac3adc846508a781b805e0476ea" Name="Diagram1">
+      <Diagram DiagramId="76385790de4a4285976216bea59b9383" Name="Diagram1">
         <EntityTypeShape EntityType="DaNangZModel.Category" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DaNangZModel.Entry" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaNangZModel.Entry" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DaNangZModel.sysdiagram" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DaNangZModel.UserProfile" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DaNangZModel.webpages_Membership" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaNangZModel.webpages_Membership" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DaNangZModel.webpages_Roles" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <AssociationConnector Association="DaNangZModel.webpages_UsersInRoles" ManuallyRouted="false" />
       </Diagram>

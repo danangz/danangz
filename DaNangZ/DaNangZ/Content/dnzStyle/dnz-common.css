@@ -96,6 +96,7 @@
 .ui-jqgrid .ui-jqgrid-bdiv
 {
     overflow-y: scroll !important;
+    overflow-wrap: break-word;
 }
 
 .ui-pg-input{
