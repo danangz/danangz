@@ -49,7 +49,7 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DisplayName" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="ReceiveEmail" Type="bit" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="InsAt" Type="datetime" Nullable="false" />
     <Property Name="InsBy" Type="nvarchar" MaxLength="50" Nullable="false" />

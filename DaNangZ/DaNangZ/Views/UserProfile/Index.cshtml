@@ -1,0 +1,49 @@
+﻿<input type="button" id="btnAdd" title="Thêm tài khoản" value="Thêm tài khoản" class="button" />
+<br />
+<br />
+
+<table id="grid"></table>
+<div id="pager" class="div_pager"></div>
+
+<script>
+
+    jQuery("#grid").jqGrid({
+        url: '/UserProfile/GetAll',
+        datatype: "json",
+        colNames: ['Id', 'Username', 'Tên hiển thị', 'Email', 'Thời gian thêm', 'Thêm bởi', ''],
+        colModel: [
+            { name: 'Id', align: "center", key: true, hidden: true, sortable: true },
+            { name: 'UserName', width: 50, editable: true, align: "center" },
+            { name: 'DisplayName', width: 50, editable: true, align: "center" },
+            { name: 'Email', width: 50, editable: true, align: "center" },
+            { name: 'InsAt', width: 30, align: "center", formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y h:i A" }, formatter: "date" },
+            { name: 'InsBy', width: 40, align: "center" },
+            { name: 'Action', width: 20, align: "center", sortable: false, clickable: false },
+        ],
+        rowNum: 20,
+        rowList: false,
+        pager: '#pager',
+        viewrecords: true,
+        ShinkToFit: false,
+        multiSort: true,
+        hidegrid: false,
+        gridview: true,
+        myType: 'GET',
+        height: 200,
+        jsonReader: {
+            root: "rows",
+            page: "page",
+            total: "total",
+            records: "records",
+            repeatitems: false,
+            userdata: "userdata"
+        },
+        autowidth: true,
+        autoheight: true,
+        mutiselect: false,
+        editable: true
+    });
+
+    $("#grid").jqGrid('navGrid', '#pager', { edit: false, add: false, del: false, search: false, refresh: false });
+
+</script>

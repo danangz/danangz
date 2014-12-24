@@ -11,11 +11,13 @@ namespace DaNangZ.BusinessService
     {
         private readonly ICategoryBusiness _categoryBusiness;
         private readonly IEntryBusiness _entryBusiness;
+        private readonly IUserProfileBusiness _userProfileBusiness;
 
-        public DaNangZService(ICategoryBusiness categoryBusiness, IEntryBusiness entryBusiness)
+        public DaNangZService(ICategoryBusiness categoryBusiness, IEntryBusiness entryBusiness, IUserProfileBusiness userProfileBusiness)
         {
             _categoryBusiness = categoryBusiness;
             _entryBusiness = entryBusiness;
+            _userProfileBusiness = userProfileBusiness;
         }
 
         public ICategoryBusiness Category
@@ -26,6 +28,11 @@ namespace DaNangZ.BusinessService
         public IEntryBusiness Entry
         {
             get { return _entryBusiness; }
+        }
+
+        public IUserProfileBusiness UserProfile
+        {
+            get { return _userProfileBusiness; }
         }
     }
 }

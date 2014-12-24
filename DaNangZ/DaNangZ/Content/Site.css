@@ -97,7 +97,7 @@ h5, h6 {
 ----------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 1200px;
 }
 
 #body {
@@ -124,7 +124,7 @@ footer {
     clear: both;
     background-color: #007233;
     font-size: .8em;
-    height: 50px;
+    height: 30px;
     color: #fff;
 }
 

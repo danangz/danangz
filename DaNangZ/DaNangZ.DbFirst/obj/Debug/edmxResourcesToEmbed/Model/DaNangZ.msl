@@ -52,7 +52,7 @@
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="ReceiveEmail" ColumnName="ReceiveEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="StatusId" ColumnName="StatusId" />
           <ScalarProperty Name="InsAt" ColumnName="InsAt" />
           <ScalarProperty Name="InsBy" ColumnName="InsBy" />

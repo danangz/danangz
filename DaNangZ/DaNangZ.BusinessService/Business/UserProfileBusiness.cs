@@ -7,65 +7,64 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 
 namespace DaNangZ.BusinessService.Business
 {
-    public class EntryBusiness : IEntryBusiness
+    public class UserProfileBusiness : IUserProfileBusiness
     {
         private readonly IUnitOfWorkFactory<UnitOfWork> _unitOfWorkFactory;
 
-        public EntryBusiness(IUnitOfWorkFactory<UnitOfWork> unitOfWorkFactory)
+        public UserProfileBusiness(IUnitOfWorkFactory<UnitOfWork> unitOfWorkFactory)
         {
             _unitOfWorkFactory = unitOfWorkFactory;
         }
 
         #region Implementation of IPeriodBusiness
 
-        public DNZCollectionModel<Entry> GetAll(string sidx, string sord, int pageNo, int pageSize)
+        public DNZCollectionModel<UserProfile> GetAll(string sidx, string sord, int pageNo, int pageSize)
         {
             using (UnitOfWork uow = _unitOfWorkFactory.Create())
             {
-                var list = uow.Repository<Entry>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
-               .OrderByDescending(x => x.Id)
+                var list = uow.Repository<UserProfile>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
+               .OrderByDescending(x => x.UserId)
                .Skip(pageSize * (pageNo - 1))
                .Take(pageSize);
 
-                var totalRecords = uow.Repository<Entry>().Where(status => status.StatusId.Equals(Constant.Constant.Active)).Count();
+                var totalRecords = uow.Repository<UserProfile>().Where(status => status.StatusId.Equals(Constant.Constant.Active)).Count();
 
                 int totalPages = (totalRecords % pageSize) == 0 ? (totalRecords / pageSize) : (totalRecords / pageSize) + 1;
 
-                return new DNZCollectionModel<Entry>
+                return new DNZCollectionModel<UserProfile>
                 {
-                    Data = list.Include(x => x.Category).ToList(),
+                    Data = list.ToList(),
                     TotalPages = totalPages,
                     TotalRecords = totalRecords
                 };
             }
         }
 
-        public IList<Entry> GetAll()
+        public IList<UserProfile> GetAll()
         {
             using (UnitOfWork uow = _unitOfWorkFactory.Create())
             {
-                List<Entry> Entrys = uow.Repository<Entry>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
-                                                            .OrderBy(x => x.Id).ToList();
+                List<UserProfile> UserProfiles = uow.Repository<UserProfile>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
+                                                            .OrderBy(x => x.UserId).ToList();
 
-                return Entrys;
+                return UserProfiles;
             }
         }
 
-        public Entry Insert(Entry entry)
+        public UserProfile Insert(UserProfile userProfile)
         {
             try
             {
                 using (UnitOfWork uow = _unitOfWorkFactory.Create())
                 {
-                    Entry insertedEntry = uow.Repository<Entry>().Add(entry);
+                    UserProfile insertedUserProfile = uow.Repository<UserProfile>().Add(userProfile);
 
                     uow.SaveChanges();
 
-                    return insertedEntry;
+                    return insertedUserProfile;
                 }
             }
             catch (Exception ex)
@@ -74,23 +73,23 @@ namespace DaNangZ.BusinessService.Business
             }
         }
 
-        public Entry Update(Entry entry)
+        public UserProfile Update(UserProfile userProfile)
         {
             try
             {
                 using (UnitOfWork uow = _unitOfWorkFactory.Create())
                 {
-                    Entry existingEntry = uow.Repository<Entry>().FirstOrDefault(o => o.Id == entry.Id);
+                    UserProfile existingUserProfile = uow.Repository<UserProfile>().FirstOrDefault(o => o.UserId == userProfile.UserId);
 
-                    if (existingEntry != null)
+                    if (existingUserProfile != null)
                     {
-                        existingEntry.UpdBy = entry.UpdBy;
-                        existingEntry.UpdAt = entry.UpdAt;
+                        existingUserProfile.UpdBy = userProfile.UpdBy;
+                        existingUserProfile.UpdAt = userProfile.UpdAt;
 
                         uow.SaveChanges();
                     }
 
-                    return existingEntry;
+                    return existingUserProfile;
                 }
             }
             catch (Exception ex)
@@ -99,18 +98,18 @@ namespace DaNangZ.BusinessService.Business
             }
         }
 
-        public Entry Details(int id)
+        public UserProfile Details(int id)
         {
             try
             {
                 using (UnitOfWork uow = _unitOfWorkFactory.Create())
                 {
-                    Entry entryResult =
-                        uow.Repository<Entry>().FirstOrDefault(o => o.Id == id);
+                    UserProfile userProfileResult =
+                        uow.Repository<UserProfile>().FirstOrDefault(o => o.UserId == id);
 
-                    if (entryResult != null)
+                    if (userProfileResult != null)
                     {
-                        return entryResult;
+                        return userProfileResult;
                     }
                 }
             }
@@ -129,16 +128,16 @@ namespace DaNangZ.BusinessService.Business
                 using (UnitOfWork uow = _unitOfWorkFactory.Create())
                 {
                     //Get existing Period
-                    Entry entry =
-                        uow.Repository<Entry>().FirstOrDefault(o => o.Id == id && o.StatusId.Equals(Constant.Constant.Active));
+                    UserProfile userProfile =
+                        uow.Repository<UserProfile>().FirstOrDefault(o => o.UserId == id && o.StatusId.Equals(Constant.Constant.Active));
 
-                    if (entry == null)
+                    if (userProfile == null)
                     {
-                        throw new DataLayerException("Entry is not found in the system");
+                        throw new DataLayerException("UserProfile is not found in the system");
                     }
 
                     //Delete
-                    uow.Repository<Entry>().Remove(entry);
+                    uow.Repository<UserProfile>().Remove(userProfile);
 
                     uow.SaveChanges();
 

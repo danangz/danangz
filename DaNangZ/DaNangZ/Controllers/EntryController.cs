@@ -35,7 +35,7 @@ namespace DaNangZ.Web.Controllers
                         select new
                         {
                             Id = ent.Id,
-                            CategoryId = _dnZService.Category.Details(ent.CategoryId).CategoryName,
+                            CategoryId = ent.Category.CategoryName,
                             EntrySubject = ent.EntrySubject,
                             Summarize = ent.Summarize,
                             Actived = GetIndicator(ent.Actived),

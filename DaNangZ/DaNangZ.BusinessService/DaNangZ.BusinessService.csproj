@@ -52,6 +52,8 @@
     <Compile Include="Business\EntryBusiness.cs" />
     <Compile Include="Business\ICategoryBusiness.cs" />
     <Compile Include="Business\IEntryBusiness.cs" />
+    <Compile Include="Business\IUserProfileBusiness.cs" />
+    <Compile Include="Business\UserProfileBusiness.cs" />
     <Compile Include="Constant\Constant.cs" />
     <Compile Include="DaNangZService.cs" />
     <Compile Include="IDaNangZService.cs" />

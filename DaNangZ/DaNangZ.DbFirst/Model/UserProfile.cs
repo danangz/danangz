@@ -23,7 +23,7 @@ namespace DaNangZ.DbFirst.Model
         public string UserName { get; set; }
         public string DisplayName { get; set; }
         public string Email { get; set; }
-        public bool ReceiveEmail { get; set; }
+        public string Password { get; set; }
         public string StatusId { get; set; }
         public System.DateTime InsAt { get; set; }
         public string InsBy { get; set; }

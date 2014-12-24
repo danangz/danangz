@@ -43,9 +43,9 @@
                         <li>@Html.ActionLink("Từ khóa", "Index", "Entry")</li>
                         <li>|</li>
                         <li>@Html.ActionLink("Thiết lập", "Index", "Dashboard")</li>
-                        <li>@Html.ActionLink("Tài khoản", "Index", "Category")</li>
+                        <li>@Html.ActionLink("Tài khoản", "Index", "UserProfile")</li>
                         <li>|</li>
-                        <li>@Html.ActionLink("Website", "Index", "Entry")</li>
+                        <li><a href="http://danangz.com" target="_blank">Website</a></li>
                     </ul>
                 </nav>
             </div>
@@ -61,7 +61,7 @@
     <footer style="position:fixed; width:100%; bottom:0px;">
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; @DateTime.Now.Year - Copyright by DaNangZ</p>
+                <p>@DateTime.Now.Year - Copyright by DaNangZ</p>
             </div>
         </div>
     </footer>
