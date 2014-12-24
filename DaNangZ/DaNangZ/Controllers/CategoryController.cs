@@ -59,7 +59,7 @@ namespace DaNangZ.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult EditCategory(int categoryId, string categoryNameOld, string categoryNameNew)
+        public JsonResult EditCategory(int categoryId, string categoryNameNew)
         {
             Category cat = new Category() { Id= categoryId, CategoryName = categoryNameNew };
             var data = _dnZService.Category.Update(cat);
