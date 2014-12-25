@@ -1,4 +1,7 @@
 ﻿using DaNangZ.BusinessService;
+using DaNangZ.DbFirst.Model;
+using DaNangZ.UserService.RoleService;
+using DaNangZ.UserService.UserService;
 using DaNangZ.Web.Common;
 using System;
 using System.Collections.Generic;
@@ -10,11 +13,15 @@ namespace DaNangZ.Web.Controllers
 {
     public class UserProfileController : Controller
     {
+        private readonly IUserService<UserProfile, int> _simpleMembershipService;
+        private readonly IRoleService _roleService;
         private IDaNangZService _dnZService = null;
 
-        public UserProfileController(IDaNangZService dnZService)
+        public UserProfileController(IUserService<UserProfile, int> userService, IRoleService roleService, IDaNangZService dnZService)
         {
-            this._dnZService = dnZService;
+            _simpleMembershipService = userService;
+            _roleService = roleService;
+            _dnZService = dnZService;
         }
 
         public ActionResult Index()
@@ -45,6 +52,21 @@ namespace DaNangZ.Web.Controllers
             };
 
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult AddUserProfile(string userName, string displayName, string password, string email, string systemAdmin, string entryAdmin, string pushAdmin, string viewAdmin)
+        {
+            UserProfile user = new UserProfile() { UserName = userName, DisplayName = displayName, Email = email };
+            var data = _dnZService.UserProfile.Insert(user, password);
+
+            if (systemAdmin.Equals("true")) { _roleService.AddUserToRole(userName, Constant.Role.SystemAdmin); }
+            if (entryAdmin.Equals("true")) { _roleService.AddUserToRole(userName, Constant.Role.EntryAdmin); }
+            if (pushAdmin.Equals("true")) { _roleService.AddUserToRole(userName, Constant.Role.PushAdmin); }
+            if (viewAdmin.Equals("true")) { _roleService.AddUserToRole(userName, Constant.Role.ViewAdmin); }
+
+            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
     }
 }

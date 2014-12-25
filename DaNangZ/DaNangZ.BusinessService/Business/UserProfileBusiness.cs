@@ -54,13 +54,18 @@ namespace DaNangZ.BusinessService.Business
             }
         }
 
-        public UserProfile Insert(UserProfile userProfile)
+        public UserProfile Insert(UserProfile userProfile, string password)
         {
             try
             {
                 using (UnitOfWork uow = _unitOfWorkFactory.Create())
                 {
                     UserProfile insertedUserProfile = uow.Repository<UserProfile>().Add(userProfile);
+
+                    uow.SaveChanges();
+
+                    webpages_Membership membership = new webpages_Membership() { UserId = insertedUserProfile.UserId, Password = password };
+                    webpages_Membership insertedMembership = uow.Repository<webpages_Membership>().Add(membership);
 
                     uow.SaveChanges();
 

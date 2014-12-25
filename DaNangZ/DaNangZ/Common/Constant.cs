@@ -20,5 +20,13 @@ namespace DaNangZ.Web.Common
             public static string UnabletoComplete = "Unable to Complete";
             public static string Overdue = "Overdue";
         }
+
+        public static class Role
+        {
+            public static string SystemAdmin = "System Admin";
+            public static string EntryAdmin = "Entry Admin";
+            public static string PushAdmin = "Push Admin";
+            public static string ViewAdmin = "View Admin";
+        }
     }
 }

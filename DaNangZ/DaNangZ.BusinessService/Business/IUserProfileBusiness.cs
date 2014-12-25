@@ -12,7 +12,7 @@ namespace DaNangZ.BusinessService.Business
     {
         DNZCollectionModel<UserProfile> GetAll(string sidx, string sord, int pageNo, int pageSize);
         IList<UserProfile> GetAll();
-        UserProfile Insert(UserProfile period);
+        UserProfile Insert(UserProfile period, string password);
         UserProfile Update(UserProfile period);
         UserProfile Details(int id);
         bool Delete(int id);

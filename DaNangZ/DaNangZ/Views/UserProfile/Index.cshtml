@@ -2,15 +2,171 @@
 <br />
 <br />
 
+@Html.AntiForgeryToken()
+<div id="create_form" style="display: none; font-size:12px" title="Thêm danh mục">
+    <table>
+        <tr>
+            <td style="width: 100px">
+                @Html.Hidden("userProfileIdEdit")
+                @Html.Label("Tên đăng nhập", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                @Html.TextBox("userName", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px">
+                @Html.Label("Tên hiển thị", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                @Html.TextBox("displayName", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px">
+                @Html.Label("Email", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                @Html.TextBox("email", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px">
+                @Html.Label("Mật khẩu", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                @Html.TextBox("password", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px">
+                @Html.Label("Phân quyền", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            @Html.CheckBox("systemAdmin", new { @style = " margin-left: 5px;" })
+                        </td>
+                        <td>
+                            <p>System Admin</p>
+                        </td>
+                        <td>
+                            @Html.CheckBox("entryAdmin", new { @style = " margin-left: 5px;" })
+                        </td>
+                        <td>
+                            <p>Entry Admin</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.CheckBox("pushAdmin", new { @style = " margin-left: 5px;" })
+                        </td>
+                        <td>
+                            <p>Push Admin</p>
+                        </td>
+                        <td>
+                            @Html.CheckBox("viewAdmin", new { @style = " margin-left: 5px;" })
+                        </td>
+                        <td>
+                            <p>View Admin</p>
+                        </td>
+                    </tr>
+                </table>
+                
+            </td>
+        </tr>
+        <tr>
+            <td style ="width: 100px"></td>
+            <td>
+                <input id="btnClose" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+                <input id="btnOk" type="button" value="Thêm" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="message_form" title="Message" style="display: none; font-size: 12px; text-align: center; min-height: 40px !important;">
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <div id="message_confirm" style="padding-top: 5px; text-align: center;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btnOkMessage" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+            </td>
+        </tr>
+    </table>
+    <br />
+</div>
 <table id="grid"></table>
 <div id="pager" class="div_pager"></div>
 
 <script>
 
+    $("#btnClose").click(function () {
+        $("#create_form").dialog("close");
+    });
+
+    $("#btnAdd").click(function () {
+        $("#create_form").dialog({
+            closeOnEscape: false,
+            open: function (event, ui) { $(".ui-dialog-titlebar-close").hide() },
+            height: 'auto',
+            width: '360px',
+            modal: true,
+            title: 'Thêm tài khoản',
+            resizable: false,
+        });
+    });
+
+    $("#btnOk").click(function () {
+        var requestData = {
+            __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+            userName: $('#userName').val(),
+            displayName: $("#displayName").val(),
+            password: $('#password').val(),
+            email: $('#email').val(),
+            systemAdmin: $('#systemAdmin').prop('checked'),
+            entryAdmin: $('#entryAdmin').prop('checked'),
+            pushAdmin: $('#pushAdmin').prop('checked'),
+            viewAdmin: $('#viewAdmin').prop('checked'),
+        };
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("AddUserProfile", "UserProfile")',
+            async: false,
+            data: requestData,
+            dataType: "json",
+            timeout: 5000,
+            success: function (response) {
+                if (response.success == false) {
+                    $("#message_confirm").text('Có lỗi trong quá trình tạo tài khoản!');
+                    $("#message_form").dialog({
+                        closeOnEscape: false,
+                        open: function (event, ui) {
+                            $(".ui-dialog-titlebar-close").hide();
+                        },
+                        height: 'auto',
+                        width: '250px',
+                        modal: true,
+                        resizable: false,
+                    });
+                }
+                else {
+                    $("#create_form").dialog('close');
+                    $("#grid").trigger("reloadGrid");
+                }
+            },
+        });
+    });
+
     jQuery("#grid").jqGrid({
         url: '/UserProfile/GetAll',
         datatype: "json",
-        colNames: ['Id', 'Username', 'Tên hiển thị', 'Email', 'Thời gian thêm', 'Thêm bởi', ''],
+        colNames: ['Id', 'Tên đăng nhập', 'Tên hiển thị', 'Email', 'Thời gian thêm', 'Thêm bởi', ''],
         colModel: [
             { name: 'Id', align: "center", key: true, hidden: true, sortable: true },
             { name: 'UserName', width: 50, editable: true, align: "center" },
