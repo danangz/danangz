@@ -13,5 +13,7 @@ namespace DaNangZ.BusinessService
         ICategoryBusiness Category { get; }
         IEntryBusiness Entry { get; }
         IUserProfileBusiness UserProfile { get; }
+
+        IDashboardBusiness Dashboard { get; }
     }
 }

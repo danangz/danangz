@@ -77,6 +77,7 @@ namespace DaNangZ.Web.Controllers
             var result = new
             {
                 Id = ent.Id,
+                AvatarLink = ent.AvatarLink,
                 EntrySubject = ent.EntrySubject,
                 Summarize = ent.Summarize,
                 Content = ent.EntryContent,

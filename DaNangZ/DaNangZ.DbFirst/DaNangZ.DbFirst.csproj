@@ -73,9 +73,6 @@
     <Compile Include="Model\Entry.cs">
       <DependentUpon>DaNangZ.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>DaNangZ.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\UserProfile.cs">
       <DependentUpon>DaNangZ.tt</DependentUpon>
     </Compile>

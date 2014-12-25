@@ -13,7 +13,6 @@ namespace DaNangZ.DbFirst
     {
         DbSet<Category> Categories { get; set; }
         DbSet<Entry> Entries { get; set; }
-        DbSet<sysdiagram> sysdiagrams { get; set; }
         DbSet<UserProfile> UserProfiles { get; set; }
         DbSet<webpages_Membership> webpages_Membership { get; set; }
         DbSet<webpages_Roles> webpages_Roles { get; set; }
