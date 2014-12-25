@@ -20,6 +20,25 @@ namespace DaNangZ.Web.Controllers
 
         public ActionResult Index()
         {
+            var cateList = _dnZService.Category.GetAll().ToList();
+
+            List<SelectListItem> categories = new List<SelectListItem>();
+
+            foreach (Category c in cateList)
+            {
+                categories.Add(new SelectListItem { Text = c.CategoryName, Value = c.Id.ToString() });
+            }
+
+            ViewBag.CategoryList = categories;
+
+            List<SelectListItem> activedList = new List<SelectListItem>();
+
+            activedList.Add(new SelectListItem { Text = "Đang đăng", Value = Constant.StatusIndicator.Completed });
+            activedList.Add(new SelectListItem { Text = "Chưa được đăng", Value = Constant.StatusIndicator.InProgress });
+            activedList.Add(new SelectListItem { Text = "Đã được đăng", Value = Constant.StatusIndicator.Overdue });
+
+            ViewBag.ActivedList = activedList;
+
             return View();
         }
 
@@ -44,8 +63,24 @@ namespace DaNangZ.Web.Controllers
                             InsBy = ent.InsBy,
                             UpdAt = ent.UpdAt,
                             UpdBy = ent.UpdBy,
-                            Action = string.Format("<input type='button' id='btnEdit' title='Sửa danh mục' onClick='Edit({0})' class='icon-edit'/>&nbsp&nbsp<input type='button' id='btnDel' title='Xóa danh mục' onClick='Delete({0})'  class='icon-delete'/>", ent.Id),
+                            Action = string.Format("<input type='button' id='btnView' title='Xem bài viết' onClick='View({0})' class='icon-view'/>&nbsp&nbsp<input type='button' id='btnEdit' title='Sửa bài viết' onClick='Edit({0})' class='icon-edit'/>&nbsp&nbsp<input type='button' id='btnDel' title='Xóa bài viết' onClick='Delete({0})'  class='icon-delete'/>", ent.Id),
                         }).ToList()
+            };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ViewEntry(string entryId)
+        {
+            Entry ent = _dnZService.Entry.Details(Convert.ToInt32(entryId));
+
+            var result = new
+            {
+                Id = ent.Id,
+                EntrySubject = ent.EntrySubject,
+                Summarize = ent.Summarize,
+                Content = ent.EntryContent,
+                InsAt = ent.InsAt
             };
 
             return Json(result, JsonRequestBehavior.AllowGet);
@@ -105,7 +140,7 @@ namespace DaNangZ.Web.Controllers
             {
                 return Json(new { success = false }, JsonRequestBehavior.AllowGet);
             }
-            if(actived.Equals("true"))
+            if (actived.Equals("true"))
             {
                 actived = Constant.StatusIndicator.Completed;
             }
@@ -113,13 +148,21 @@ namespace DaNangZ.Web.Controllers
             {
                 actived = Constant.StatusIndicator.InProgress;
             }
-            if(string.IsNullOrEmpty(orderNumber))
+            if (string.IsNullOrEmpty(orderNumber))
             {
                 orderNumber = "0";
             }
 
-            Entry entry = new Entry() { CategoryId = Convert.ToInt32(categoryId), AvatarLink = avatarLink, OrderInHome = Convert.ToInt32(orderNumber),
-                                        EntrySubject = entrySubject, EntryContent = entryContent, Summarize = summarize, Actived = actived};
+            Entry entry = new Entry()
+            {
+                CategoryId = Convert.ToInt32(categoryId),
+                AvatarLink = avatarLink,
+                OrderInHome = Convert.ToInt32(orderNumber),
+                EntrySubject = entrySubject,
+                EntryContent = entryContent,
+                Summarize = summarize,
+                Actived = actived
+            };
             var data = _dnZService.Entry.Insert(entry);
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }

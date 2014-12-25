@@ -9,7 +9,7 @@ body {
     background-color: #fff;
     border-top: solid 10px #2b579a;
     color: #333;
-    font-size: .85em;
+    font-size: 12px;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
@@ -473,7 +473,7 @@ textarea {
     td input[type="submit"],
     td input[type="button"],
     td button {
-        font-size: 1em;
+        font-size: 12px;
         padding: 4px;
         margin-right: 4px;
     }
