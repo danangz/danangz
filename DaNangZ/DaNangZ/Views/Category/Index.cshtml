@@ -1,13 +1,12 @@
 ﻿<input type="button" id="btnAdd" title="Thêm danh mục" value="Thêm danh mục" class="button" />
-<br />
-<br />
+<br /><br />
 @Html.AntiForgeryToken()
 <div id="create_form" style="display: none; font-size:12px" title="Thêm danh mục">
     <table>
         <tr>
             <td>
                 @Html.Hidden("categoryIdEdit")
-                @Html.Label("Tên danh mục", new { @style = "padding-left: 10px; padding-top: 3px; float: left; width: auto;" })
+                @Html.Label("Tên danh mục", new { @style = "padding-left: 10px; padding-top: 3px; float: left; width: 120px;" })
             </td>
         </tr>
         <tr>
@@ -54,6 +53,7 @@
             width: '300px',
             modal: true,
             title: 'Thêm danh mục',
+            resizable: false,
         });
     });
 
@@ -183,6 +183,7 @@
             width: '300px',
             modal: true,
             title: 'Sửa danh mục',
+            resizable: false,
         });
     };
 
@@ -194,6 +195,7 @@
             height: 'auto',
             width: '300px',
             modal: true,
+            resizable: false,
         });
     }
 

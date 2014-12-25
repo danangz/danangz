@@ -15,3 +15,4 @@ C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLS
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\bin\Debug\SQLScript.pdb
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.pdb
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.csprojResolveAssemblyReference.cache

@@ -22,4 +22,3 @@ C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNa
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.xml
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.pdb
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.csprojResolveAssemblyReference.cache
