@@ -280,6 +280,7 @@ C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNan
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.Web.csprojResolveAssemblyReference.cache
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.dll
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.pdb
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.Web.csprojResolveAssemblyReference.cache
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\bin\DaNangZ.dll.config
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\bin\DaNangZ.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\bin\DaNangZ.pdb
@@ -375,6 +376,5 @@ C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNa
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\bin\ru\System.Spatial.resources.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.Web.csprojResolveAssemblyReference.cache
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.pdb

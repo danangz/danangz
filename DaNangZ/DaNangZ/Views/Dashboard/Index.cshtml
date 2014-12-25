@@ -1,1 +1,88 @@
-﻿
+﻿<table style="text-align: left; width: 260px; color: #2b579a;">
+    <tr>
+        <td class="td_result">
+            @Html.Label("Số danh mục")
+        </td>
+        <td class="td_title">
+            @Html.Label((string)ViewBag.TotalCategory)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td class="td_result">
+            @Html.Label("Số bài viết đang đăng")
+        </td>
+        <td class="td_title">
+            @Html.Label((string)ViewBag.TotalEntryCompleted)
+        </td>
+    </tr>
+    <tr>
+        <td class="td_result">
+            @Html.Label("Số bài viết đã đăng")
+        </td>
+        <td class="td_title">
+            @Html.Label((string)ViewBag.TotalEntryOverdue)
+        </td>
+    </tr>
+    <tr>
+        <td class="td_result">
+            @Html.Label("Số bài viết chờ đăng")
+        </td>
+        <td class="td_title">
+            @Html.Label((string)ViewBag.TotalEntryInProgress)
+        </td>
+    </tr>
+    <tr>
+        <td class="td_result">
+            @Html.Label("Tổng số bài viết")
+        </td>
+        <td class="td_title">
+            @Html.Label((string)ViewBag.TotalEntry)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td class="td_result">
+            @Html.Label("Số lượt truy cập trong ngày")
+        </td>
+        <td class="td_title">
+            @Html.Label("90")
+        </td>
+    </tr>
+    <tr>
+        <td class="td_result">
+            @Html.Label("Số lượt truy cập trong tháng")
+        </td>
+        <td class="td_title">
+            @Html.Label("90")
+        </td>
+    </tr>
+    <tr>
+        <td class="td_result">
+            @Html.Label("Tổng số lượt truy cập")
+        </td>
+        <td class="td_title">
+            @Html.Label("90")
+        </td>
+    </tr>
+</table>
+<style>
+    .td_title {
+        background-color: #2b579a;
+        color: #fff;
+        border: 1px solid #2b579a;
+    }
+    .td_result {
+        background-color: #fff;
+        color: #2b579a;
+        border: 1px solid #2b579a;
+    }
+</style>

@@ -27,7 +27,6 @@ namespace DaNangZ.DbFirst.Model
     
         public DbSet<Category> Categories { get; set; }
         public DbSet<Entry> Entries { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<webpages_Membership> webpages_Membership { get; set; }
         public DbSet<webpages_Roles> webpages_Roles { get; set; }

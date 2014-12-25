@@ -19,7 +19,7 @@
                 @Html.Label("Hình đại diện")
             </td>
             <td>
-                <input id="avatarLink" type="file"></input>
+                @Html.TextBox("avatarLink", "", new { @style = "width: 100%; float: left;" })
             </td>
             <td>&nbsp;&nbsp;</td>
             <td style="width: 70px;">
@@ -68,21 +68,40 @@
     <input id="btnOkAndContinuos" type="button" value="Lưu & Thêm mới" class="button" style="float: right; margin-right: 10px; width: auto;" />
     <input id="btnOkAndReturn" type="button" value="Lưu & Trở về" class="button" style="float: right; margin-right: 10px; width: auto;" />
 </div>
+<div id="message_form" title="Message" style="display: none; font-size: 12px; text-align: center; min-height: 40px !important;">
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <div id="message_confirm" style="padding-top: 5px; text-align: center;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btnOkMessage" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+            </td>
+        </tr>
+    </table>
+    <br />
+</div>
 <script>
     $("#btnClose").click(function () {
         location.href = '@Url.Content("~/Entry")';
     });
 
+    $("#btnOkMessage").click(function () {
+        $("#message_form").dialog("close");
+        $("#message_confirm").text('');
+    });
+
     $("#btnOkAndReturn").click(function () {
-        var content = CKEDITOR.instances['entryContent'].getData();
         var requestData = {
             __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
             categoryId: $('#categoryName').val(),
-            avatarLink: $('#avatarLink').val(),
+            avatarLink: $("#avatarLink").val(),
             actived: $('#actived').prop('checked'),
             orderNumber: $('#orderNumber').val(),
             entrySubject: $('#entrySubject').val(),
-            entryContent: content,
+            entryContent: CKEDITOR.instances['entryContent'].getData(),
             summarize: $('#summarize').val(),
         };
         $.ajax({
@@ -95,10 +114,78 @@
             timeout: 5000,
             success: function (response) {
                 if (response.success == false) {
+                    $("#message_confirm").text('Có lỗi trong quá trình lưu bài!');
+                    $("#message_form").dialog({
+                        closeOnEscape: false,
+                        open: function (event, ui) {
+                            $(".ui-dialog-titlebar-close").hide();
+                        },
+                        height: 'auto',
+                        width: '250px',
+                        modal: true,
+                        resizable: false,
+                    });
                 }
                 else {
                     location.href = '@Url.Content("~/Entry")';
                     $("#grid").trigger("reloadGrid");
+                }
+            },
+        });
+    });
+
+    $("#btnOkAndContinuos").click(function () {
+        var requestData = {
+            __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+            categoryId: $('#categoryName').val(),
+            avatarLink: $("#avatarLink").val(),
+            actived: $('#actived').prop('checked'),
+            orderNumber: $('#orderNumber').val(),
+            entrySubject: $('#entrySubject').val(),
+            entryContent: CKEDITOR.instances['entryContent'].getData(),
+            summarize: $('#summarize').val(),
+        };
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("AddEntry", "Entry")',
+            async: false,
+            data: requestData,
+            dataType: "json",
+            timeout: 5000,
+            success: function (response) {
+                if (response.success == false) {
+                    $("#message_confirm").text('Có lỗi trong quá trình lưu bài!');
+                    $("#message_form").dialog({
+                        closeOnEscape: false,
+                        open: function (event, ui) {
+                            $(".ui-dialog-titlebar-close").hide();
+                        },
+                        height: 'auto',
+                        width: '250px',
+                        modal: true,
+                        resizable: false,
+                    });
+                }
+                else {
+                    $("#message_confirm").text('Lưu bài thành công!');
+                    $("#message_form").dialog({
+                        closeOnEscape: false,
+                        open: function (event, ui) {
+                            $(".ui-dialog-titlebar-close").hide();
+                        },
+                        height: 'auto',
+                        width: '250px',
+                        modal: true,
+                        resizable: false,
+                    });
+                    $('#categoryName').val('');
+                    $("#avatarLink").val('');
+                    $('#actived').prop('checked');
+                    $('#orderNumber').val('');
+                    $('#entrySubject').val('');
+                    CKEDITOR.instances['entryContent'].setData('');
+                    $('#summarize').val('');
                 }
             },
         });
