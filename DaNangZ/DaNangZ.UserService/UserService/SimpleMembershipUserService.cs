@@ -15,7 +15,7 @@ namespace DaNangZ.UserService.UserService
     public class SimpleMembershipUserService<TUserProfile> : IUserService<TUserProfile, int>
         where TUserProfile : class, IUserProfile<int>
     {
-        private readonly ConnectionStringSettings _ldapdomain = ConfigurationManager.ConnectionStrings["DaNangZEntities"];
+        private readonly ConnectionStringSettings _ldapdomain = ConfigurationManager.ConnectionStrings["DefaultConnection"];
         private readonly IUnitOfWorkFactory<UnitOfWork> _unitOfWorkFactory;
 
         public SimpleMembershipUserService(IUnitOfWorkFactory<UnitOfWork> unitOfWorkFactory)
@@ -152,7 +152,6 @@ namespace DaNangZ.UserService.UserService
 
         public virtual void AddUser(TUserProfile userProfile)
         {
-            userProfile.Active = true;
             userProfile.ReceiveEmail = true;
 
             using (var uow = _unitOfWorkFactory.Create())
@@ -248,7 +247,7 @@ namespace DaNangZ.UserService.UserService
         {
             var user =
                 _unitOfWorkFactory.Create().Repository<TUserProfile>()
-                            .FirstOrDefault(x => x.UserName.Equals(userName) && x.Active == true);
+                            .FirstOrDefault(x => x.UserName.Equals(userName) && x.StatusId == Constant.Active);
             return user;
         }
 

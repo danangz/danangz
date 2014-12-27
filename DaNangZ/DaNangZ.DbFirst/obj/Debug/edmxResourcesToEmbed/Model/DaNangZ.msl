@@ -64,6 +64,20 @@
           <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
           <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
           <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="InsAt" ColumnName="InsAt" />
+          <ScalarProperty Name="InsBy" ColumnName="InsBy" />
+          <ScalarProperty Name="UpdAt" ColumnName="UpdAt" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_OAuthMembership">
+      <EntityTypeMapping TypeName="DaNangZModel.webpages_OAuthMembership">
+        <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
+          <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

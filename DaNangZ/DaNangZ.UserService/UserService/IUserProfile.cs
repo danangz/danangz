@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DaNangZ.UserService.UserService
 {
-    public interface IUserProfile<TUserId> where TUserId : struct
+    public interface IUserProfile<TUserId> 
+        where TUserId : struct
     {
         /// <summary>
         /// Id of the user profile.
@@ -37,7 +38,5 @@ namespace DaNangZ.UserService.UserService
         string UpdBy { get; set; }
 
         bool ReceiveEmail { get; set; }
-
-        bool Active { get; set; }
     }
 }

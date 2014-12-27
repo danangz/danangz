@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using DaNangZ.Web.App_Start;
+using WebMatrix.WebData;
 
 namespace DaNangZ.Web
 {
@@ -26,6 +27,8 @@ namespace DaNangZ.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            DbInitializer.Initialize();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace DaNangZ.BusinessService.Business
             using (UnitOfWork uow = _unitOfWorkFactory.Create())
             {
                 var list = uow.Repository<UserProfile>().Where(status => status.StatusId.Equals(Constant.Constant.Active))
-               .OrderByDescending(x => x.UserId)
+               .OrderBy(x => x.UserName)
                .Skip(pageSize * (pageNo - 1))
                .Take(pageSize);
 

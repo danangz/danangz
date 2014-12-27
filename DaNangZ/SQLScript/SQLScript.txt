@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [DaNangZ]    Script Date: 12/24/2014 12:05:05 PM ******/
+/****** Object:  Database [DaNangZ]    Script Date: 12/27/2014 11:29:59 PM ******/
 CREATE DATABASE [DaNangZ]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -77,7 +77,7 @@ EXEC sys.sp_db_vardecimal_storage_format N'DaNangZ', N'ON'
 GO
 USE [DaNangZ]
 GO
-/****** Object:  Table [dbo].[Category]    Script Date: 12/24/2014 12:05:05 PM ******/
+/****** Object:  Table [dbo].[Category]    Script Date: 12/27/2014 11:29:59 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,7 +97,7 @@ CREATE TABLE [dbo].[Category](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Entry]    Script Date: 12/24/2014 12:05:05 PM ******/
+/****** Object:  Table [dbo].[Entry]    Script Date: 12/27/2014 11:29:59 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[Entry](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[UserProfile]    Script Date: 12/24/2014 12:05:05 PM ******/
+/****** Object:  Table [dbo].[UserProfile]    Script Date: 12/27/2014 11:29:59 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -147,7 +147,7 @@ CREATE TABLE [dbo].[UserProfile](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_Membership]    Script Date: 12/24/2014 12:05:05 PM ******/
+/****** Object:  Table [dbo].[webpages_Membership]    Script Date: 12/27/2014 11:29:59 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -161,17 +161,39 @@ CREATE TABLE [dbo].[webpages_Membership](
 	[PasswordFailuresSinceLastSuccess] [int] NOT NULL,
 	[Password] [nvarchar](128) NOT NULL,
 	[PasswordChangedDate] [datetime] NULL,
-	[PasswordSalt] [nvarchar](128) NOT NULL,
+	[PasswordSalt] [nvarchar](128) NULL,
 	[PasswordVerificationToken] [nvarchar](128) NULL,
 	[PasswordVerificationTokenExpirationDate] [datetime] NULL,
-PRIMARY KEY CLUSTERED 
+	[StatusId] [nvarchar](50) NOT NULL,
+	[InsAt] [datetime] NOT NULL,
+	[InsBy] [nvarchar](50) NOT NULL,
+	[UpdAt] [datetime] NOT NULL,
+	[UpdBy] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK__webpages__1788CC4C0EDA7646] PRIMARY KEY CLUSTERED 
 (
 	[UserId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_Roles]    Script Date: 12/24/2014 12:05:05 PM ******/
+/****** Object:  Table [dbo].[webpages_OAuthMembership]    Script Date: 12/27/2014 11:29:59 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[webpages_OAuthMembership](
+	[Provider] [nvarchar](30) NOT NULL,
+	[ProviderUserId] [nvarchar](100) NOT NULL,
+	[UserId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Provider] ASC,
+	[ProviderUserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[webpages_Roles]    Script Date: 12/27/2014 11:29:59 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -190,7 +212,7 @@ UNIQUE NONCLUSTERED
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[webpages_UsersInRoles]    Script Date: 12/24/2014 12:05:05 PM ******/
+/****** Object:  Table [dbo].[webpages_UsersInRoles]    Script Date: 12/27/2014 11:29:59 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -206,9 +228,9 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 
 GO
-ALTER TABLE [dbo].[webpages_Membership] ADD  DEFAULT ((0)) FOR [IsConfirmed]
+ALTER TABLE [dbo].[webpages_Membership] ADD  CONSTRAINT [DF__webpages___IsCon__1B0907CE]  DEFAULT ((0)) FOR [IsConfirmed]
 GO
-ALTER TABLE [dbo].[webpages_Membership] ADD  DEFAULT ((0)) FOR [PasswordFailuresSinceLastSuccess]
+ALTER TABLE [dbo].[webpages_Membership] ADD  CONSTRAINT [DF__webpages___Passw__1BFD2C07]  DEFAULT ((0)) FOR [PasswordFailuresSinceLastSuccess]
 GO
 ALTER TABLE [dbo].[Entry]  WITH CHECK ADD  CONSTRAINT [FK_Entry_Category] FOREIGN KEY([CategoryId])
 REFERENCES [dbo].[Category] ([Id])

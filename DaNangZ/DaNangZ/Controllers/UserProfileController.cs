@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace DaNangZ.Web.Controllers
 {
@@ -45,6 +47,7 @@ namespace DaNangZ.Web.Controllers
                             UserName = user.UserName,
                             DisplayName = user.DisplayName,
                             Email = user.Email,
+                            Role = _roleService.GetRolesForUser(user.UserName),
                             InsAt = user.InsAt,
                             InsBy = user.InsBy,
                             Action = string.Format("<input type='button' id='btnEdit' title='Sửa danh mục' onClick='Edit({0})' class='icon-edit'/>&nbsp&nbsp<input type='button' id='btnDel' title='Xóa danh mục' onClick='Delete({0})'  class='icon-delete'/>", user.UserId),

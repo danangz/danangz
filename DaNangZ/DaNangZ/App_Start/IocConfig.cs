@@ -5,6 +5,8 @@ using DaNangZ.CoreLib.Data;
 using DaNangZ.CoreLib.Data.Entity;
 using DaNangZ.DbFirst;
 using DaNangZ.DbFirst.Model;
+using DaNangZ.UserService.RoleService;
+using DaNangZ.UserService.UserService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,13 +37,13 @@ namespace DaNangZ.Web.App_Start
 
             builder.RegisterAssemblyTypes(typeof(IDaNangZService).Assembly).AsImplementedInterfaces();
 
-            //builder.RegisterAssemblyTypes(typeof(IRoleService).Assembly)
-            //   .Where(t => t.Name.EndsWith("Service"))
-            //   .AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(IRoleService).Assembly)
+               .Where(t => t.Name.EndsWith("Service"))
+               .AsImplementedInterfaces();
 
-            //builder.RegisterType(typeof(SimpleMembershipUserService<UserProfile>))
-            //       .As(typeof(IUserService<UserProfile, int>)).SingleInstance().PreserveExistingDefaults();
-            //builder.RegisterAssemblyTypes(typeof(IUserService<IUserProfile<int>, int>).Assembly).AsImplementedInterfaces();
+            builder.RegisterType(typeof(SimpleMembershipUserService<UserProfile>))
+                   .As(typeof(IUserService<UserProfile, int>)).SingleInstance().PreserveExistingDefaults();
+
             //builder.RegisterAssemblyTypes(typeof(IEmailService).Assembly).AsImplementedInterfaces();
 
             var container = builder.Build();

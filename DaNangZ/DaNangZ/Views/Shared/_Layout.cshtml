@@ -27,27 +27,33 @@
                     </tr>
                     <tr>
                         <td>
-                            <img src="~/Images/icon/personal.png" style="padding-top: 5px;" />
-                            <span style="color: #808080;">Xin chào <span style="font-weight: bold; color: #2b579a;">Võ Minh Thành!</span></span>
-                            | @Html.ActionLink("Đăng xuất", "Index", "Dashboard")
+                            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                            {
+                                <img src="~/Images/icon/personal.png" style="padding-top: 5px;" />
+                                <span style="color: #808080;">Xin chào | <span style="font-weight: bold; color: #2b579a;">Võ Minh Thành!</span></span>
+                                @Html.ActionLink("Đăng xuất", "Index", "Dashboard")
+                            }
                         </td>
                     </tr>
                 </table>
                 <br />
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Thống kê", "Index", "Dashboard")</li>
-                        <li>|</li>
-                        <li>@Html.ActionLink("Danh mục", "Index", "Category")</li>
-                        <li>@Html.ActionLink("Bài viết", "Index", "Entry")</li>
-                        <li>@Html.ActionLink("Từ khóa", "Index", "Entry")</li>
-                        <li>|</li>
-                        <li>@Html.ActionLink("Thiết lập", "Index", "Dashboard")</li>
-                        <li>@Html.ActionLink("Tài khoản", "Index", "UserProfile")</li>
-                        <li>|</li>
-                        <li><a href="http://danangz.com" target="_blank">Website</a></li>
-                    </ul>
-                </nav>
+                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Thống kê", "Index", "Dashboard")</li>
+                            <li>|</li>
+                            <li>@Html.ActionLink("Danh mục", "Index", "Category")</li>
+                            <li>@Html.ActionLink("Bài viết", "Index", "Entry")</li>
+                            <li>@Html.ActionLink("Từ khóa", "Index", "Entry")</li>
+                            <li>|</li>
+                            <li>@Html.ActionLink("Thiết lập", "Index", "Dashboard")</li>
+                            <li>@Html.ActionLink("Tài khoản", "Index", "UserProfile")</li>
+                            <li>|</li>
+                            <li><a href="http://danangz.com" target="_blank">Website</a></li>
+                        </ul>
+                    </nav>
+                }
             </div>
         </div>
     </header>
@@ -65,7 +71,6 @@
             </div>
         </div>
     </footer>
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

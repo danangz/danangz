@@ -46,7 +46,6 @@ namespace DaNangZ.CoreLib.Utilities
             }
         }
 
-
         public static Bitmap CreateBitmapFromBytes(byte[] byteArray)
         {
             Bitmap bitmap = null;

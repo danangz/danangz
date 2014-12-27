@@ -25,5 +25,10 @@ namespace DaNangZ.DbFirst.Model
         public string PasswordSalt { get; set; }
         public string PasswordVerificationToken { get; set; }
         public Nullable<System.DateTime> PasswordVerificationTokenExpirationDate { get; set; }
+        public string StatusId { get; set; }
+        public System.DateTime InsAt { get; set; }
+        public string InsBy { get; set; }
+        public System.DateTime UpdAt { get; set; }
+        public string UpdBy { get; set; }
     }
 }

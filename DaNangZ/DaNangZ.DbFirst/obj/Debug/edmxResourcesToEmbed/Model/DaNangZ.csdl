@@ -64,6 +64,20 @@
     <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+    <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_Roles">
     <Key>
@@ -94,6 +108,7 @@
     <EntitySet Name="Entries" EntityType="Self.Entry" />
     <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
     <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" />
     <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" />
     <AssociationSet Name="FK_Entry_Category" Association="Self.FK_Entry_Category">
       <End Role="Category" EntitySet="Categories" />

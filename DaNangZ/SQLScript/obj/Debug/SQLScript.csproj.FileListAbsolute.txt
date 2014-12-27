@@ -6,11 +6,12 @@ C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\bin\Debug\SQLScript.dll
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\bin\Debug\SQLScript.pdb
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\obj\Debug\SQLScript.dll
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\SQLScript\obj\Debug\SQLScript.pdb
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\bin\Debug\SQLScript.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\bin\Debug\SQLScript.pdb
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.pdb
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\bin\Debug\SQLScript.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\bin\Debug\SQLScript.pdb
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\bin\Debug\SQLScript.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\bin\Debug\SQLScript.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\SQLScript\obj\Debug\SQLScript.csprojResolveAssemblyReference.cache

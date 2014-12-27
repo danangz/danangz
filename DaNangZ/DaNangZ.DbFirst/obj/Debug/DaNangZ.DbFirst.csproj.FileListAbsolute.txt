@@ -18,16 +18,6 @@ C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\DaNangZ.DbFirst\bin\Debug\EntityF
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.csprojResolveAssemblyReference.cache
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.dll
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.pdb
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.DbFirst.dll.config
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.DbFirst.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.DbFirst.pdb
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.CoreLib.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\EntityFramework.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.CoreLib.pdb
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\EntityFramework.xml
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.csprojResolveAssemblyReference.cache
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.pdb
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.csprojResolveAssemblyReference.cache
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.DbFirst.dll.config
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.DbFirst.dll
@@ -38,3 +28,15 @@ C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNa
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\EntityFramework.xml
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.DbFirst.dll.config
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.DbFirst.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.DbFirst.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.CoreLib.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.UserService.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\EntityFramework.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.CoreLib.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.UserService.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\EntityFramework.xml
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.csprojResolveAssemblyReference.cache
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.pdb

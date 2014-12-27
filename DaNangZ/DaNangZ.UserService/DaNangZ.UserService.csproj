@@ -51,25 +51,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleService\IRoleService.cs" />
     <Compile Include="RoleService\RoleService.cs" />
+    <Compile Include="UserAndRoleServiceException.cs" />
     <Compile Include="UserService\IUserProfile.cs" />
-    <Compile Include="UserService\IUserProfileAD.cs" />
     <Compile Include="UserService\IUserService.cs" />
     <Compile Include="UserService\SimpleMembershipUserService.cs" />
-    <Compile Include="UserService\UserAndRoleServiceException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DaNangZ.CoreLib\DaNangZ.CoreLib.csproj">
       <Project>{da94db1c-b257-4c7c-aee3-b45dd77f7f95}</Project>
       <Name>DaNangZ.CoreLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DaNangZ.DbFirst\DaNangZ.DbFirst.csproj">
-      <Project>{585c524c-4785-408e-9d0f-89d52e4634b9}</Project>
-      <Name>DaNangZ.DbFirst</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

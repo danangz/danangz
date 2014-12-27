@@ -61,6 +61,20 @@
     <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" />
     <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
     <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+    <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsAt" Type="datetime" Nullable="false" />
+    <Property Name="InsBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_Roles">
     <Key>
@@ -118,6 +132,7 @@
     <EntitySet Name="Entry" EntityType="Self.Entry" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Entry_Category" Association="Self.FK_Entry_Category">

@@ -10,15 +10,16 @@ C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityF
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.xml
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.dll
 C:\Users\THANHVM1\Source\Repos\danangz\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.pdb
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\DaNangZ.CoreLib.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\DaNangZ.CoreLib.pdb
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.xml
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.dll
-C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.pdb
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\DaNangZ.CoreLib.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\DaNangZ.CoreLib.pdb
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.xml
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.dll
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\DaNangZ.CoreLib.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\DaNangZ.CoreLib.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\bin\Debug\EntityFramework.xml
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.dll
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.csprojResolveAssemblyReference.cache

@@ -58,6 +58,7 @@
     <Compile Include="Business\UserProfileBusiness.cs" />
     <Compile Include="Constant\Constant.cs" />
     <Compile Include="DaNangZService.cs" />
+    <Compile Include="Data\DaNangZDatabaseSeeder.cs" />
     <Compile Include="IDaNangZService.cs" />
     <Compile Include="Models\DNZCollectionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +72,10 @@
     <ProjectReference Include="..\DaNangZ.DbFirst\DaNangZ.DbFirst.csproj">
       <Project>{585c524c-4785-408e-9d0f-89d52e4634b9}</Project>
       <Name>DaNangZ.DbFirst</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DaNangZ.UserService\DaNangZ.UserService.csproj">
+      <Project>{fb93c87e-847f-49d6-82ed-55d55ab9d741}</Project>
+      <Name>DaNangZ.UserService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

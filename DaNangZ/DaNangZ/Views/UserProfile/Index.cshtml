@@ -35,7 +35,7 @@
                 @Html.Label("Mật khẩu", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
             </td>
             <td>
-                @Html.TextBox("password", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
+                @Html.Password("password", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
             </td>
         </tr>
         <tr>
@@ -105,6 +105,30 @@
 
 <script>
 
+    $("#systemAdmin").click(function () {
+        $("#entryAdmin").prop('checked', false);
+        $("#pushAdmin").prop('checked', false);
+        $("#viewAdmin").prop('checked', false);
+    });
+
+    $("#entryAdmin").click(function () {
+        $("#systemAdmin").prop('checked', false);
+        $("#pushAdmin").prop('checked', false);
+        $("#viewAdmin").prop('checked', false);
+    });
+
+    $("#pushAdmin").click(function () {
+        $("#entryAdmin").prop('checked', false);
+        $("#systemAdmin").prop('checked', false);
+        $("#viewAdmin").prop('checked', false);
+    });
+
+    $("#viewAdmin").click(function () {
+        $("#entryAdmin").prop('checked', false);
+        $("#pushAdmin").prop('checked', false);
+        $("#systemAdmin").prop('checked', false);
+    });
+
     $("#btnClose").click(function () {
         $("#create_form").dialog("close");
     });
@@ -166,12 +190,13 @@
     jQuery("#grid").jqGrid({
         url: '/UserProfile/GetAll',
         datatype: "json",
-        colNames: ['Id', 'Tên đăng nhập', 'Tên hiển thị', 'Email', 'Thời gian thêm', 'Thêm bởi', ''],
+        colNames: ['Id', 'Tên đăng nhập', 'Tên hiển thị', 'Email', 'Phân quyền', 'Thời gian thêm', 'Thêm bởi', ''],
         colModel: [
             { name: 'Id', align: "center", key: true, hidden: true, sortable: true },
-            { name: 'UserName', width: 50, editable: true, align: "center" },
+            { name: 'UserName', width: 40, editable: true, align: "center" },
             { name: 'DisplayName', width: 50, editable: true, align: "center" },
             { name: 'Email', width: 50, editable: true, align: "center" },
+            { name: 'Role', width: 40, editable: true, align: "center" },
             { name: 'InsAt', width: 30, align: "center", formatoptions: { srcformat: "ISO8601Long", newformat: "d/m/Y h:i A" }, formatter: "date" },
             { name: 'InsBy', width: 40, align: "center" },
             { name: 'Action', width: 20, align: "center", sortable: false, clickable: false },

@@ -1,35 +1,41 @@
-﻿@model DaNangZ.Models.LoginModel
-
-@{
+﻿@{
     ViewBag.Title = "Log in";
 }
 
-<section id="loginForm">
+<section id="loginForm" style="width: 100%;">
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Log in Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </li>
-        </ol>
-        <input type="submit" value="Log in" class="button" style="width: 120px" />
+        <table style="margin: 0 auto">
+            <tr>
+                <td>
+                    @Html.Label("Tên đăng nhập", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+                </td>
+                <td>
+                    @Html.TextBox("userName", "", new { @style = "width: 270px; margin-left: 5px;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Mật khẩu", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+                </td>
+                <td>
+                    @Html.TextBox("password", "", new { @style = "width: 270px; margin-left: 5px;" })
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Log in" class="button" style="width: 120px" />
+                    <input type="submit" value="Reset" class="button" style="width: 120px" />
+                </td>
+            </tr>
+        </table>
     </fieldset>
 }
-</section>
-
-<section class="social" id="socialLoginForm">
-    <img src="~/Images/image/newspaper.jpg" />
 </section>
 
 @section Scripts {
