@@ -33,8 +33,7 @@ namespace DaNangZ.CoreLib.Data.Entity
                 DateTime currentDateTime = DateTime.Now;
                 Type type;
                 //TODO get current username
-                //string currentUsername = getCurrentUser().Identity.Name;
-                string currentUsername = "admin";
+                string currentUsername = getCurrentUser().Identity.Name;
 
                 foreach (var entry in changeSet.Where(c => c.State != EntityState.Unchanged))
                 {

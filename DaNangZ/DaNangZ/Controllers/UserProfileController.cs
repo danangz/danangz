@@ -61,9 +61,7 @@ namespace DaNangZ.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult AddUserProfile(string userName, string displayName, string password, string email, string systemAdmin, string entryAdmin, string pushAdmin, string viewAdmin)
         {
-            UserProfile user = new UserProfile() { UserName = userName, DisplayName = displayName, Email = email };
-            var data = _dnZService.UserProfile.Insert(user, password);
-
+            WebSecurity.CreateUserAndAccount(userName, password, new { UserName = userName, DisplayName = displayName, Email = email, ReceiveEmail = true, StatusId = "StatusActive", UpdBy = Membership.GetUser().UserName, UpdAt = DateTime.Now, InsBy = Membership.GetUser().UserName, InsAt = DateTime.Now }, false);
             if (systemAdmin.Equals("true")) { _roleService.AddUserToRole(userName, Constant.Role.SystemAdmin); }
             if (entryAdmin.Equals("true")) { _roleService.AddUserToRole(userName, Constant.Role.EntryAdmin); }
             if (pushAdmin.Equals("true")) { _roleService.AddUserToRole(userName, Constant.Role.PushAdmin); }

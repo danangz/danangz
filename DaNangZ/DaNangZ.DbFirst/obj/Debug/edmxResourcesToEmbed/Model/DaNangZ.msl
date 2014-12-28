@@ -64,11 +64,6 @@
           <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
           <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
           <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
-          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-          <ScalarProperty Name="InsAt" ColumnName="InsAt" />
-          <ScalarProperty Name="InsBy" ColumnName="InsBy" />
-          <ScalarProperty Name="UpdAt" ColumnName="UpdAt" />
-          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -61,11 +61,6 @@
     <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" />
     <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
     <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
-    <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="InsAt" Type="datetime" Nullable="false" />
-    <Property Name="InsBy" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="UpdAt" Type="datetime" Nullable="false" />
-    <Property Name="UpdBy" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_OAuthMembership">
     <Key>

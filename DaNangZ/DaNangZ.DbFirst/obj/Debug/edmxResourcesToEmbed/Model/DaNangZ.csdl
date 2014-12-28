@@ -64,11 +64,6 @@
     <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
-    <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="InsAt" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="InsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="UpdAt" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_OAuthMembership">
     <Key>

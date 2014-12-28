@@ -1,20 +1,27 @@
-﻿using DaNangZ.DbFirst.Model;
+﻿using DaNangZ.BusinessService;
+using DaNangZ.DbFirst.Model;
 using DaNangZ.UserService.UserService;
+using DaNangZ.Web.Common;
+using DaNangZ.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace DaNangZ.Web.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IUserService<UserProfile, int> _userService;
+        private IDaNangZService _dnZService = null;
 
-        public AccountController(IUserService<UserProfile, int> userService)
+        public AccountController(IUserService<UserProfile, int> userService, IDaNangZService dnZService)
         {
             _userService = userService;
+            _dnZService = dnZService;
         }
 
         [HttpGet]
@@ -41,6 +48,73 @@ namespace DaNangZ.Web.Controllers
         {
             Uri validatedUri;
             return Uri.TryCreate(uri, UriKind.RelativeOrAbsolute, out validatedUri);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                if (LoginTroughLocalMembership(model))
+                {
+                    return RedirectToLocal(returnUrl);
+                }
+            }
+            return View(model);
+        }
+
+        private bool LoginTroughLocalMembership(LoginModel model)
+        {
+            try
+            {
+                if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+                {
+                    if (_userService.GetUserByUserName(model.UserName) != null)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                        return true;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("LoginFail", "The user name is inactive.");
+                        return false;
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("LoginFail", "The user Id or password provided is incorrect.");
+                    return false;
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError("", "System user and role setting is incorrectly configured.");
+            }
+
+            ModelState.AddModelError("LoginFail", "The user Id or password provided is incorrect.");
+            return false;
+        }
+
+        public ActionResult LogOff()
+        {
+            WebSecurity.Logout();
+            if (Request.IsAjaxRequest())
+            {
+                return JavaScript("document.location.replace('" + Url.Action("Login", "Account") + "');");
+            }
+
+            return RedirectToAction("Login", "Account");
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Dashboard");
         }
     }
 }

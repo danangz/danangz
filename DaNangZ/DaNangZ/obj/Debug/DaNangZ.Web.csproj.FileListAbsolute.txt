@@ -380,3 +380,5 @@ C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNan
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.Web.csprojResolveAssemblyReference.cache
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.dll
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.pdb
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.Web.Common.ErrorMessages.resources
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ\obj\Debug\DaNangZ.Web.csproj.GenerateResource.Cache

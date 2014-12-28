@@ -1,10 +1,13 @@
 ﻿using DaNangZ.BusinessService;
+using DaNangZ.DbFirst.Model;
 using DaNangZ.Web.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace DaNangZ.Web.Controllers
 {
@@ -19,6 +22,10 @@ namespace DaNangZ.Web.Controllers
 
         public ActionResult Index()
         {
+            UserProfile usp = _dnZService.UserProfile.Details(WebSecurity.GetUserId(Membership.GetUser().UserName));
+
+            Session["DisplayNameSession"] = usp.DisplayName;
+
             ViewBag.TotalCategory = _dnZService.Dashboard.CountTotalCategory().ToString();
             ViewBag.TotalEntry = _dnZService.Dashboard.CountTotalEntry().ToString();
             ViewBag.TotalEntryCompleted = _dnZService.Dashboard.CountTotalEntryWhereStatus(Constant.StatusIndicator.Completed).ToString();
@@ -27,5 +34,7 @@ namespace DaNangZ.Web.Controllers
 
             return View();
         }
+
+
     }
 }

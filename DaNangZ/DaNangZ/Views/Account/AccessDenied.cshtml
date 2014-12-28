@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+}
+
+<h4>An error occurred while processing your request.</h4>
+@{
+    if (!string.IsNullOrEmpty(ViewBag.ReferalUrl))
+    {
+        <a href="@ViewBag.ReferalUrl">Go back</a>
+    }
+}

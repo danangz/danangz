@@ -1,43 +1,72 @@
-﻿@{
+﻿@model DaNangZ.Web.Models.LoginModel
+
+@{
     ViewBag.Title = "Log in";
 }
 
 <section id="loginForm" style="width: 100%;">
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Log in Form</legend>
-        <table style="margin: 0 auto">
-            <tr>
-                <td>
-                    @Html.Label("Tên đăng nhập", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
-                </td>
-                <td>
-                    @Html.TextBox("userName", "", new { @style = "width: 270px; margin-left: 5px;" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.Label("Mật khẩu", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
-                </td>
-                <td>
-                    @Html.TextBox("password", "", new { @style = "width: 270px; margin-left: 5px;" })
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Log in" class="button" style="width: 120px" />
-                    <input type="submit" value="Reset" class="button" style="width: 120px" />
-                </td>
-            </tr>
-        </table>
-    </fieldset>
-}
+        <fieldset>
+            <legend>Log in Form</legend>
+            <table style="margin: 0 auto">
+                <tr>
+                    <td>
+                        @Html.Label("Tên đăng nhập", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+                    </td>
+                    <td>
+                        @Html.TextBox("userName", "", new { @style = "width: 270px; margin-left: 5px;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("Mật khẩu", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+                    </td>
+                    <td>
+                        @Html.Password("password", "", new { @style = "width: 270px; margin-left: 5px;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input id="btnLogin" type="submit" value="Log in" class="button" style="width: 120px" />
+                        <input id="btnClear" type="button" value="Reset" class="button" style="width: 120px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessage("LoginFail", new { @id = "error_login", @style = "font-size: 12px; color: red" })</td>
+                </tr>
+            </table>
+        </fieldset>
+    }
 </section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<script>
+    $(function () {
+        $("#btnClear").click(function () {
+            $("#userName").val('');
+            $("#password").val('');
+            $("#error_username").val('');
+            $("#error_password").val('');
+            $("#error_login").val('');
+            $("#error_username").hide();
+            $("#error_password").hide();
+            $("#error_login").hide();
+        });
+        $("#login").click(function () {
+            $("#error_username").val('');
+            $("#error_password").val('');
+            $("#error_login").val('');
+            $("#error_username").show();
+            $("#error_password").show();
+            $("#error_login").show();
+        });
+    });
+</script>
