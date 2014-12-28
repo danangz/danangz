@@ -646,6 +646,7 @@
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\Entry\AddEntry.cshtml" />
     <Content Include="Views\Account\AccessDenied.cshtml" />
+    <Content Include="Views\Shared\LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

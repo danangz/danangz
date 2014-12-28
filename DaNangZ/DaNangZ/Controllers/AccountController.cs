@@ -1,5 +1,6 @@
 ﻿using DaNangZ.BusinessService;
 using DaNangZ.DbFirst.Model;
+using DaNangZ.UserService.RoleService;
 using DaNangZ.UserService.UserService;
 using DaNangZ.Web.Common;
 using DaNangZ.Web.Models;
@@ -17,11 +18,13 @@ namespace DaNangZ.Web.Controllers
     {
         private readonly IUserService<UserProfile, int> _userService;
         private IDaNangZService _dnZService = null;
+        private readonly IRoleService _roleService;
 
-        public AccountController(IUserService<UserProfile, int> userService, IDaNangZService dnZService)
+        public AccountController(IUserService<UserProfile, int> userService, IDaNangZService dnZService, IRoleService roleService)
         {
             _userService = userService;
             _dnZService = dnZService;
+            _roleService = roleService;
         }
 
         [HttpGet]
@@ -69,6 +72,15 @@ namespace DaNangZ.Web.Controllers
         {
             try
             {
+                string username = "admin";
+                string password = "danangZ@123$";
+
+                if (WebSecurity.GetUserId(username) == -1)
+                {
+                    WebSecurity.CreateUserAndAccount(username, password, new { UserName = username, DisplayName = username, Email = "admin@danangz.com", ReceiveEmail = true, StatusId = Constant.Active, UpdBy = username, UpdAt = DateTime.Now, InsBy = username, InsAt = DateTime.Now }, false);
+                    _roleService.AddUserToRole(username, Constant.Role.SystemAdmin);
+                }
+
                 if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
                 {
                     if (_userService.GetUserByUserName(model.UserName) != null)

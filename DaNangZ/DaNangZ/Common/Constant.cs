@@ -9,8 +9,8 @@ namespace DaNangZ.Web.Common
     public static class Constant
     {
         public static int PageSize = 20;
-        public static string Active = "Active";
-        public static string Inactive = "Inactive";
+        public static string Active = "StatusActive";
+        public static string Inactive = "StatusInactive";
 
         public static class StatusIndicator
         {
