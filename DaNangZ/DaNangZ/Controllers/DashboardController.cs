@@ -11,6 +11,7 @@ using WebMatrix.WebData;
 
 namespace DaNangZ.Web.Controllers
 {
+    [Authorize(Roles = "System Admin")]
     public class DashboardController : Controller
     {
         private IDaNangZService _dnZService = null;
@@ -20,6 +21,7 @@ namespace DaNangZ.Web.Controllers
             this._dnZService = dnZService;
         }
 
+        [Authorize(Roles = "System Admin")]
         public ActionResult Index()
         {
             UserProfile usp = _dnZService.UserProfile.Details(WebSecurity.GetUserId(Membership.GetUser().UserName));
