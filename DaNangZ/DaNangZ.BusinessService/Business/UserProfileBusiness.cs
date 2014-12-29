@@ -88,6 +88,9 @@ namespace DaNangZ.BusinessService.Business
 
                     if (existingUserProfile != null)
                     {
+                        existingUserProfile.UserName = userProfile.UserName;
+                        existingUserProfile.DisplayName = userProfile.DisplayName;
+                        existingUserProfile.Email = userProfile.Email;
                         existingUserProfile.UpdBy = userProfile.UpdBy;
                         existingUserProfile.UpdAt = userProfile.UpdAt;
 
