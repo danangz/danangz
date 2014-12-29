@@ -1,7 +1,9 @@
-﻿<input type="button" id="btnAdd" title="Thêm tài khoản" value="Thêm tài khoản" class="button" />
+﻿<br />
 <br />
 <br />
-
+<input type="button" id="btnAdd" title="Thêm tài khoản" value="Thêm tài khoản" class="button" />
+<br />
+<br />
 @Html.AntiForgeryToken()
 <div id="create_form" style="display: none; font-size:12px" title="Thêm danh mục">
     <table>
@@ -73,14 +75,88 @@
                         </td>
                     </tr>
                 </table>
-                
+
             </td>
         </tr>
         <tr>
-            <td style ="width: 100px"></td>
+            <td style="width: 100px"></td>
             <td>
                 <input id="btnClose" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
                 <input id="btnOk" type="button" value="Thêm" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="update_form" style="display: none; font-size:12px" title="Thêm danh mục">
+    <table>
+        <tr>
+            <td style="width: 100px">
+                @Html.Hidden("userProfileIdEdit")
+                @Html.Label("Tên đăng nhập", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                @Html.TextBox("userNameEdit", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px">
+                @Html.Label("Tên hiển thị", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                @Html.TextBox("displayNameEdit", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px">
+                @Html.Label("Email", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                @Html.TextBox("emailEdit", "", new { @style = "width: 200px; font-size: 12px; margin-left: 5px;" })
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px">
+                @Html.Label("Phân quyền", new { @style = "padding-left: 10px; font-size: 12px; padding-top: 3px; float: left; width: 100px;" })
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            @Html.CheckBox("systemAdminEdit", new { @style = " margin-left: 5px;" })
+                        </td>
+                        <td>
+                            <p>System Admin</p>
+                        </td>
+                        <td>
+                            @Html.CheckBox("entryAdminEdit", new { @style = " margin-left: 5px;" })
+                        </td>
+                        <td>
+                            <p>Entry Admin</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.CheckBox("pushAdminEdit", new { @style = " margin-left: 5px;" })
+                        </td>
+                        <td>
+                            <p>Push Admin</p>
+                        </td>
+                        <td>
+                            @Html.CheckBox("viewAdminEdit", new { @style = " margin-left: 5px;" })
+                        </td>
+                        <td>
+                            <p>View Admin</p>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 100px"></td>
+            <td>
+                <input id="btnCloseEdit" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+                <input id="btnOkEdit" type="button" value="Sửa" class="button" style="float: right; margin-right: 10px; width: 70px;" />
             </td>
         </tr>
     </table>
@@ -100,9 +176,24 @@
     </table>
     <br />
 </div>
+<div id="dialog_confirm_delete" title="Xóa danh mục" style="display: none; font-size: 12px; min-height: 40px !important;">
+    <table>
+        <tr>
+            <td>
+                <div id="message_confirm" style="padding-top: 5px;">Bạn có chắc chắn muốn xóa tài khoản này không?</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="btnCloseDel" type="button" value="Đóng" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+                <input id="btnOkDel" type="button" value="Xóa" class="button" style="float: right; margin-right: 10px; width: 70px;" />
+            </td>
+        </tr>
+    </table>
+    <br />
+</div>
 <table id="grid"></table>
 <div id="pager" class="div_pager"></div>
-
 <script>
 
     $("#systemAdmin").click(function () {
@@ -129,8 +220,41 @@
         $("#systemAdmin").prop('checked', false);
     });
 
+    $("#systemAdminEdit").click(function () {
+        $("#entryAdminEdit").prop('checked', false);
+        $("#pushAdminEdit").prop('checked', false);
+        $("#viewAdminEdit").prop('checked', false);
+    });
+
+    $("#entryAdminEdit").click(function () {
+        $("#systemAdminEdit").prop('checked', false);
+        $("#pushAdminEdit").prop('checked', false);
+        $("#viewAdminEdit").prop('checked', false);
+    });
+
+    $("#pushAdminEdit").click(function () {
+        $("#entryAdminEdit").prop('checked', false);
+        $("#systemAdminEdit").prop('checked', false);
+        $("#viewAdminEdit").prop('checked', false);
+    });
+
+    $("#viewAdminEdit").click(function () {
+        $("#entryAdminEdit").prop('checked', false);
+        $("#pushAdminEdit").prop('checked', false);
+        $("#systemAdminEdit").prop('checked', false);
+    });
+
     $("#btnClose").click(function () {
         $("#create_form").dialog("close");
+    });
+
+    $("#btnCloseEdit").click(function () {
+        $("#update_form").dialog("close");
+    });
+
+    $("#btnCloseDel").click(function () {
+        $("#dialog_confirm_delete").dialog("close");
+        $("#userProfileIdEdit").val('');
     });
 
     $("#btnAdd").click(function () {
@@ -144,6 +268,87 @@
             resizable: false,
         });
     });
+
+    $("#btnOkDel").click(function () {
+        var requestData = {
+            __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+            userProfileId: $("#userProfileIdEdit").val()
+        };
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("DeleteUserProfile", "UserProfile")',
+            async: false,
+            data: requestData,
+            dataType: "json",
+            timeout: 5000,
+            success: function (response) {
+                if (response.success == false) {
+                }
+                else {
+                    $("#dialog_confirm_delete").dialog("close");
+                    $("#grid").trigger("reloadGrid");
+                }
+            },
+        });
+    });
+
+    function Edit(id) {
+        $("#userProfileIdEdit").val(id);
+        var requestData = {
+            userProfileIdEdit: id
+        };
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("GetUserProfileToEdit", "UserProfile")',
+            async: false,
+            data: requestData,
+            dataType: "json",
+            timeout: 5000,
+            success: function (response) {
+                if (response.success == false) {
+                    $("#message_confirm").text('Có lỗi trong quá trình lấy tài khoản!');
+                    $("#message_form").dialog({
+                        closeOnEscape: false,
+                        open: function (event, ui) {
+                            $(".ui-dialog-titlebar-close").hide();
+                        },
+                        height: 'auto',
+                        width: '250px',
+                        modal: true,
+                        resizable: false,
+                    });
+                }
+                else {
+                    $('#userNameEdit').val(response.UserName);
+                    $("#displayNameEdit").val(response.DisplayName);
+                    $('#emailEdit').val(response.Email);
+                    if (response.Role == "System Admin") {
+                        $('#systemAdminEdit').prop('checked', true);
+                    }
+                    else if (response.Role == "Entry Admin") {
+                        $('#entryAdminEdit').prop('checked', true);
+                    }
+                    else if (response.Role == "Push Admin") {
+                        $('#pushAdminEdit').prop('checked', true);
+                    }
+                    else if (response.Role == "View Admin") {
+                        $('#viewAdminEdit').prop('checked', true);
+                    }
+                }
+            },
+        });
+        $("#update_form").dialog({
+            closeOnEscape: false,
+            open: function (event, ui) { $(".ui-dialog-titlebar-close").hide() },
+            height: 'auto',
+            width: '360px',
+            modal: true,
+            title: 'Sửa tài khoản',
+            resizable: false,
+        });
+    };
 
     $("#btnOk").click(function () {
         var requestData = {
@@ -186,6 +391,60 @@
             },
         });
     });
+
+    $("#btnOkEdit").click(function () {
+        var requestData = {
+            __RequestVerificationToken: $('[name= "__RequestVerificationToken"]').val(),
+            userProfileIdEdit: $("#userProfileIdEdit").val(),
+            userName: $('#userNameEdit').val(),
+            displayName: $("#displayNameEdit").val(),
+            email: $('#emailEdit').val(),
+            systemAdmin: $('#systemAdminEdit').prop('checked'),
+            entryAdmin: $('#entryAdminEdit').prop('checked'),
+            pushAdmin: $('#pushAdminEdit').prop('checked'),
+            viewAdmin: $('#viewAdminEdit').prop('checked'),
+        };
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("EditUserProfile", "UserProfile")',
+            async: false,
+            data: requestData,
+            dataType: "json",
+            timeout: 5000,
+            success: function (response) {
+                if (response.success == false) {
+                    $("#message_confirm").text('Có lỗi trong quá trình sửa tài khoản!');
+                    $("#message_form").dialog({
+                        closeOnEscape: false,
+                        open: function (event, ui) {
+                            $(".ui-dialog-titlebar-close").hide();
+                        },
+                        height: 'auto',
+                        width: '250px',
+                        modal: true,
+                        resizable: false,
+                    });
+                }
+                else {
+                    $("#update_form").dialog('close');
+                    $("#grid").trigger("reloadGrid");
+                }
+            },
+        });
+    });
+
+    function Delete(id) {
+        $("#userProfileIdEdit").val(id);
+        $("#dialog_confirm_delete").dialog({
+            closeOnEscape: false,
+            open: function (event, ui) { $(".ui-dialog-titlebar-close").hide() },
+            height: 'auto',
+            width: '300px',
+            modal: true,
+            resizable: false,
+        });
+    }
 
     jQuery("#grid").jqGrid({
         url: '/UserProfile/GetAll',

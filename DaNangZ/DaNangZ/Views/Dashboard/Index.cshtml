@@ -1,85 +1,102 @@
-﻿<table style="text-align: left; width: 260px; color: #2b579a;">
-    <tr>
-        <td class="td_result">
-            @Html.Label("Tổng số danh mục")
-        </td>
-        <td class="td_title">
-            @Html.Label((string)ViewBag.TotalCategory)
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-        </td>
-    </tr>
-    <tr>
-        <td class="td_result">
-            @Html.Label("Số bài viết đang đăng")
-        </td>
-        <td class="td_title">
-            @Html.Label((string)ViewBag.TotalEntryCompleted)
-        </td>
-    </tr>
-    <tr>
-        <td class="td_result">
-            @Html.Label("Số bài viết đã đăng")
-        </td>
-        <td class="td_title">
-            @Html.Label((string)ViewBag.TotalEntryOverdue)
-        </td>
-    </tr>
-    <tr>
-        <td class="td_result">
-            @Html.Label("Số bài viết chờ đăng")
-        </td>
-        <td class="td_title">
-            @Html.Label((string)ViewBag.TotalEntryInProgress)
-        </td>
-    </tr>
-    <tr>
-        <td class="td_result">
-            @Html.Label("Tổng số bài viết")
-        </td>
-        <td class="td_title">
-            @Html.Label((string)ViewBag.TotalEntry)
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-        </td>
-    </tr>
-    <tr>
-        <td class="td_result">
-            @Html.Label("Số lượt truy cập trong ngày")
-        </td>
-        <td class="td_title">
-            @Html.Label("90")
-        </td>
-    </tr>
-    <tr>
-        <td class="td_result">
-            @Html.Label("Số lượt truy cập trong tháng")
-        </td>
-        <td class="td_title">
-            @Html.Label("90")
-        </td>
-    </tr>
-    <tr>
-        <td class="td_result">
-            @Html.Label("Tổng số lượt truy cập")
-        </td>
-        <td class="td_title">
-            @Html.Label("90")
-        </td>
-    </tr>
-</table>
+﻿<script src="~/Scripts/jqPlot/jquery.jqplot.js"></script>
+<link href="~/Scripts/jqPlot/jquery.jqplot.css" rel="stylesheet" />
+<br />
+<br />
+<br /><br />
+<div id="contentbody">
+    <div id="leftbody" style="float: left; width: 500px;">
+        <table style="text-align: left; width: 260px; color: #2b579a;">
+            <tr>
+                <td class="td_result">
+                    @Html.Label("Tổng số danh mục")
+                </td>
+                <td class="td_title">
+                    @Html.Label((string)ViewBag.TotalCategory)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td class="td_result">
+                    @Html.Label("Số bài viết đang đăng")
+                </td>
+                <td class="td_title">
+                    @Html.Label((string)ViewBag.TotalEntryCompleted)
+                </td>
+            </tr>
+            <tr>
+                <td class="td_result">
+                    @Html.Label("Số bài viết đã đăng")
+                </td>
+                <td class="td_title">
+                    @Html.Label((string)ViewBag.TotalEntryOverdue)
+                </td>
+            </tr>
+            <tr>
+                <td class="td_result">
+                    @Html.Label("Số bài viết chờ đăng")
+                </td>
+                <td class="td_title">
+                    @Html.Label((string)ViewBag.TotalEntryInProgress)
+                </td>
+            </tr>
+            <tr>
+                <td class="td_result">
+                    @Html.Label("Tổng số bài viết")
+                </td>
+                <td class="td_title">
+                    @Html.Label((string)ViewBag.TotalEntry)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td class="td_result">
+                    @Html.Label("Số lượt truy cập trong ngày")
+                </td>
+                <td class="td_title">
+                    @Html.Label("90")
+                </td>
+            </tr>
+            <tr>
+                <td class="td_result">
+                    @Html.Label("Số lượt truy cập trong tháng")
+                </td>
+                <td class="td_title">
+                    @Html.Label("90")
+                </td>
+            </tr>
+            <tr>
+                <td class="td_result">
+                    @Html.Label("Tổng số lượt truy cập")
+                </td>
+                <td class="td_title">
+                    @Html.Label("90")
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="rightbody" style="float: right;">
+        <div id="chartdiv" style="height:400px;width:600px; "></div>
+    </div>
+</div>
+<script>
+    $.jqplot('chartdiv', [[[1, 2], [3, 5.12], [5, 13.1], [7, 33.6], [9, 85.9], [11, 219.9]]], {
+    });
+</script>
 <style>
     .td_title {
         background-color: #2b579a;
         color: #fff;
         border: 1px solid #2b579a;
     }
+
     .td_result {
         background-color: #fff;
         color: #2b579a;

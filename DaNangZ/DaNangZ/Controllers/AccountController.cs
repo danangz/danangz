@@ -72,15 +72,6 @@ namespace DaNangZ.Web.Controllers
         {
             try
             {
-                string username = "admin";
-                string password = "danangZ@123$";
-
-                if (WebSecurity.GetUserId(username) == -1)
-                {
-                    WebSecurity.CreateUserAndAccount(username, password, new { UserName = username, DisplayName = username, Email = "admin@danangz.com", ReceiveEmail = true, StatusId = Constant.Active, UpdBy = username, UpdAt = DateTime.Now, InsBy = username, InsAt = DateTime.Now }, false);
-                    _roleService.AddUserToRole(username, Constant.Role.SystemAdmin);
-                }
-
                 if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
                 {
                     if (_userService.GetUserByUserName(model.UserName) != null)
