@@ -61,14 +61,17 @@
       <DependentUpon>DaNangZ.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DaNangZ.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>DaNangZ.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DaNangZ.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DaNangZ.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DaNangZ1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DaNangZ.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Entry.cs">
       <DependentUpon>DaNangZ.tt</DependentUpon>
@@ -107,7 +110,7 @@
     <None Include="Model\DaNangZ.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DaNangZ.edmx</DependentUpon>
-      <LastGenOutput>DaNangZ.cs</LastGenOutput>
+      <LastGenOutput>DaNangZ1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

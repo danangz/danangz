@@ -12,6 +12,18 @@
     <Property Name="UpdBy" Type="nvarchar" MaxLength="150" />
     <Property Name="UpdAt" Type="datetime" />
   </EntityType>
+  <EntityType Name="DaNangZ">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountViewer" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsAt" Type="datetime" Nullable="false" />
+    <Property Name="InsBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdAt" Type="datetime" Nullable="false" />
+    <Property Name="UpdBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Entry">
     <Key>
       <PropertyRef Name="Id" />
@@ -124,6 +136,7 @@
   </Association>
   <EntityContainer Name="DaNangZModelStoreContainer">
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DaNangZ" EntityType="Self.DaNangZ" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Entry" EntityType="Self.Entry" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />

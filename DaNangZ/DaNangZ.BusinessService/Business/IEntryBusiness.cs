@@ -16,5 +16,6 @@ namespace DaNangZ.BusinessService.Business
         Entry Update(Entry period);
         Entry Details(int id);
         bool Delete(int id);
+        bool ApproveEntry(Entry entry);
     }
 }

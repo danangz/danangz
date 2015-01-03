@@ -13,6 +13,18 @@
     <Property Name="UpdAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Entries" Relationship="Self.FK_Entry_Category" FromRole="Category" ToRole="Entry" />
   </EntityType>
+  <EntityType Name="DaNangZ">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountViewer" Type="Int32" Nullable="false" />
+    <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="Entry">
     <Key>
       <PropertyRef Name="Id" />
@@ -100,6 +112,7 @@
   </Association>
   <EntityContainer Name="DaNangZEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="DaNangZs" EntityType="Self.DaNangZ" />
     <EntitySet Name="Entries" EntityType="Self.Entry" />
     <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
     <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />

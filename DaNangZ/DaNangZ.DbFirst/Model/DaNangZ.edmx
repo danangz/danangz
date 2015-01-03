@@ -17,6 +17,18 @@
           <Property Name="UpdBy" Type="nvarchar" MaxLength="150" />
           <Property Name="UpdAt" Type="datetime" />
         </EntityType>
+        <EntityType Name="DaNangZ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountViewer" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="InsAt" Type="datetime" Nullable="false" />
+          <Property Name="InsBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Entry">
           <Key>
             <PropertyRef Name="Id" />
@@ -129,6 +141,7 @@
         </Association>
         <EntityContainer Name="DaNangZModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DaNangZ" EntityType="Self.DaNangZ" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entry" EntityType="Self.Entry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
@@ -165,6 +178,18 @@
           <Property Name="UpdBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="UpdAt" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Entries" Relationship="Self.FK_Entry_Category" FromRole="Category" ToRole="Entry" />
+        </EntityType>
+        <EntityType Name="DaNangZ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountViewer" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InsAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Entry">
           <Key>
@@ -253,6 +278,7 @@
         </Association>
         <EntityContainer Name="DaNangZEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="DaNangZs" EntityType="Self.DaNangZ" />
           <EntitySet Name="Entries" EntityType="Self.Entry" />
           <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
           <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />
@@ -283,6 +309,19 @@
                 <ScalarProperty Name="InsAt" ColumnName="InsAt" />
                 <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
                 <ScalarProperty Name="UpdAt" ColumnName="UpdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DaNangZs">
+            <EntityTypeMapping TypeName="DaNangZModel.DaNangZ">
+              <MappingFragment StoreEntitySet="DaNangZ">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CountViewer" ColumnName="CountViewer" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="InsAt" ColumnName="InsAt" />
+                <ScalarProperty Name="InsBy" ColumnName="InsBy" />
+                <ScalarProperty Name="UpdAt" ColumnName="UpdAt" />
+                <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

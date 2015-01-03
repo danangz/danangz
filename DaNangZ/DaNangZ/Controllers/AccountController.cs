@@ -31,18 +31,18 @@ namespace DaNangZ.Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            var isLoged = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
-            ViewBag.ReturnUrl = returnUrl;
+            //var isLoged = System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            //ViewBag.ReturnUrl = returnUrl;
 
-            if (IsValidUri(returnUrl))
-            {
-                return View("AccessDenied");
-            }
+            //if (IsValidUri(returnUrl))
+            //{
+            //    return View("AccessDenied");
+            //}
 
-            if (!isLoged)
-            {
-                return View();
-            }
+            //if (!isLoged)
+            //{
+            //    return View();
+            //}
 
             return View();
         }

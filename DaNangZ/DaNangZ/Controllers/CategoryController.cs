@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DaNangZ.Web.Controllers
 {
+    [Authorize(Roles = "System Admin")]
     public class CategoryController : Controller
     {
         private IDaNangZService _dnZService = null;
@@ -18,6 +19,7 @@ namespace DaNangZ.Web.Controllers
             this._dnZService = dnZService;
         }
 
+        [Authorize(Roles = "System Admin")]
         public ActionResult Index()
         {
             return View();

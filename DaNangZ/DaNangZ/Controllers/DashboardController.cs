@@ -36,7 +36,5 @@ namespace DaNangZ.Web.Controllers
 
             return View();
         }
-
-
     }
 }

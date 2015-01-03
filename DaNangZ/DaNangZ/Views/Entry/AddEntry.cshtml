@@ -87,7 +87,7 @@
 </div>
 <script>
     $("#btnClose").click(function () {
-        location.href = '@Url.Content("~/Entry")';
+        location.href = '@Url.Content("~/Entry/Index")';
     });
 
     $("#btnOkMessage").click(function () {
@@ -129,7 +129,7 @@
                     });
                 }
                 else {
-                    location.href = '@Url.Content("~/Entry")';
+                    location.href = '@Url.Content("~/Entry/Index")';
                     $("#grid").trigger("reloadGrid");
                 }
             },

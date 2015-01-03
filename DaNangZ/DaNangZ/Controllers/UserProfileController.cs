@@ -13,6 +13,7 @@ using WebMatrix.WebData;
 
 namespace DaNangZ.Web.Controllers
 {
+    [Authorize(Roles = "System Admin")]
     public class UserProfileController : Controller
     {
         private readonly IUserService<UserProfile, int> _simpleMembershipService;
@@ -26,6 +27,7 @@ namespace DaNangZ.Web.Controllers
             _dnZService = dnZService;
         }
 
+        [Authorize(Roles = "System Admin")]
         public ActionResult Index()
         {
             return View();
