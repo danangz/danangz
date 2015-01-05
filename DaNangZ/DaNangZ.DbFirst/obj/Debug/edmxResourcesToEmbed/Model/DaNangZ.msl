@@ -14,6 +14,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DaNangZs">
+      <EntityTypeMapping TypeName="DaNangZModel.DaNangZ">
+        <MappingFragment StoreEntitySet="DaNangZ">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountViewer" ColumnName="CountViewer" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="InsAt" ColumnName="InsAt" />
+          <ScalarProperty Name="InsBy" ColumnName="InsBy" />
+          <ScalarProperty Name="UpdAt" ColumnName="UpdAt" />
+          <ScalarProperty Name="UpdBy" ColumnName="UpdBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Entries">
       <EntityTypeMapping TypeName="DaNangZModel.Entry">
         <MappingFragment StoreEntitySet="Entry">

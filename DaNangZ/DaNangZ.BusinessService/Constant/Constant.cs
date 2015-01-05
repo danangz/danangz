@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +16,15 @@ namespace DaNangZ.BusinessService.Constant
         public const string Active = "StatusActive";
         public const string InActive = "StatusInactive";
         public const string Deleted = "StatusInactive";
-        public const string TADisciplineProcess = "Process";
-        public const string TADisciplineEngineering = "Engineering";
+
+        public static class StatusIndicator
+        {
+            public static string YettoStart = "Yet to Start";
+            public static string InProgress = "In Progress";
+            public static string Completed = "Completed";
+            public static string UnabletoComplete = "Unable to Complete";
+            public static string Overdue = "Overdue";
+        }
 
         public enum Status
         {

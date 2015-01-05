@@ -1,4 +1,4 @@
-﻿using DaNangZ.BusinessService.Models;
+using DaNangZ.BusinessService.Models;
 using DaNangZ.CoreLib.Data;
 using DaNangZ.CoreLib.Data.Entity;
 using DaNangZ.DbFirst.Model;
@@ -148,6 +148,32 @@ namespace DaNangZ.BusinessService.Business
             catch (Exception e)
             {
                 throw new DataLayerException(e.Message);
+            }
+        }
+
+        public bool ApproveEntry(Entry entry)
+        {
+            try
+            {
+                using (UnitOfWork uow = _unitOfWorkFactory.Create())
+                {
+                    Entry existingEntry = uow.Repository<Entry>().FirstOrDefault(o => o.Id == entry.Id);
+
+                    if (existingEntry != null)
+                    {
+                        existingEntry.Actived = Constant.Constant.StatusIndicator.Completed;
+                        existingEntry.UpdBy = entry.UpdBy;
+                        existingEntry.UpdAt = entry.UpdAt;
+
+                        uow.SaveChanges();
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 

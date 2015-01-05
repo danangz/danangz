@@ -1,4 +1,4 @@
-﻿using DaNangZ.BusinessService;
+using DaNangZ.BusinessService;
 using DaNangZ.DbFirst.Model;
 using DaNangZ.Web.Common;
 using System;
@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DaNangZ.Web.Controllers
 {
+    [Authorize(Roles = "System Admin")]
     public class EntryController : Controller
     {
         private IDaNangZService _dnZService = null;
@@ -18,6 +19,7 @@ namespace DaNangZ.Web.Controllers
             this._dnZService = dnZService;
         }
 
+        [Authorize(Roles = "System Admin")]
         public ActionResult Index()
         {
             var cateList = _dnZService.Category.GetAll().ToList();
@@ -78,6 +80,7 @@ namespace DaNangZ.Web.Controllers
             {
                 Id = ent.Id,
                 AvatarLink = ent.AvatarLink,
+                Actived = ent.Actived,
                 EntrySubject = ent.EntrySubject,
                 Summarize = ent.Summarize,
                 Content = ent.EntryContent,
@@ -177,6 +180,22 @@ namespace DaNangZ.Web.Controllers
             if (entry != null)
             {
                 var data = _dnZService.Entry.Delete(entryId);
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult ApproveEntry(int entryId)
+        {
+            bool result = _dnZService.Entry.ApproveEntry(new Entry() { Id = entryId });
+
+            if (result)
+            {
                 return Json(new { success = true }, JsonRequestBehavior.AllowGet);
             }
             else
