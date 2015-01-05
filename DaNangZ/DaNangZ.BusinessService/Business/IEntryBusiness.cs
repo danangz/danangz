@@ -1,4 +1,4 @@
-﻿using DaNangZ.BusinessService.Models;
+using DaNangZ.BusinessService.Models;
 using DaNangZ.DbFirst.Model;
 using System;
 using System.Collections.Generic;

@@ -11,7 +11,7 @@ namespace DaNangZ.DbFirst.Model
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class DaNangZ
     {
         public int Id { get; set; }
