@@ -58,7 +58,6 @@
     <Compile Include="Business\UserProfileBusiness.cs" />
     <Compile Include="Constant\Constant.cs" />
     <Compile Include="DaNangZService.cs" />
-    <Compile Include="Data\DaNangZDatabaseSeeder.cs" />
     <Compile Include="IDaNangZService.cs" />
     <Compile Include="Models\DNZCollectionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

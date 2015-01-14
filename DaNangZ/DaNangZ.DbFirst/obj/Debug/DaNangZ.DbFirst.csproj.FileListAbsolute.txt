@@ -52,3 +52,5 @@ C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNan
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.csprojResolveAssemblyReference.cache
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.dll
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\obj\Debug\DaNangZ.DbFirst.pdb
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.UserService.dll
+C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.DbFirst\bin\Debug\DaNangZ.UserService.pdb
