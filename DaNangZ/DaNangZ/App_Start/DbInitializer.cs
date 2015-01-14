@@ -1,5 +1,4 @@
-﻿using DaNangZ.BusinessService.Data;
-using DaNangZ.CoreLib.Data.Entity;
+﻿using DaNangZ.CoreLib.Data.Entity;
 using DaNangZ.UserService.RoleService;
 using DaNangZ.Web.Common;
 using System;
