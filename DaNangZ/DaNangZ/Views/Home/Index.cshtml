@@ -1,48 +1,182 @@
-@{
+﻿@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/LayoutLogin.cshtml";
 }
-<script type='text/javascript'>
-    var googletag = googletag || {};
-    googletag.cmd = googletag.cmd || [];
-    (function () {
-        var gads = document.createElement('script');
-        gads.async = true;
-        gads.type = 'text/javascript';
-        var useSSL = 'https:' == document.location.protocol;
-        gads.src = (useSSL ? 'https:' : 'http:') +
-        '//www.googletagservices.com/tag/js/gpt.js';
-        var node = document.getElementsByTagName('script')[0];
-        node.parentNode.insertBefore(gads, node);
-    })();
-</script>
 
-<script type='text/javascript'>
-    googletag.cmd.push(function () {
-        googletag.defineSlot('/267675356/HP1', [300, 250], 'div-gpt-ad-1420639369545-0').addService(googletag.pubads());
-        googletag.defineSlot('/267675356/HP2', [300, 600], 'div-gpt-ad-1420639369545-1').addService(googletag.pubads());
-        googletag.defineSlot('/267675356/hp3', [728, 90], 'div-gpt-ad-1420639369545-2').addService(googletag.pubads());
-        googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
-    });
-</script>
-<!-- home page 1 -->
-<div id='div-gpt-ad-1420639369545-0' style='width:300px; height:250px;'>
-    <script type='text/javascript'>
-        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1420639369545-0'); });
-    </script>
+<div id="menu-top">
+    <ul class="topnav">
+        <li><a href="#" class="active">Trang Chủ</a></li>
+        <li><a href="#">Toàn Cảnh</a></li>
+        <li><a href="#">Ẩm Thực</a></li>
+        <li><a href="#">Khám Phá</a></li>
+        <li><a href="#">An Ninh</a></li>
+        <li><a href="#">Sự Kiện</a></li>
+        <li><a href="#">Khuyến Mãi</a></li>
+        <li><a href="#">Bạn Trẻ</a></li>
+        <li><a href="#">Doanh Nghiệp</a></li>
+        <li><a href="#">Việc Làm</a></li>
+        <li style="border-right: 1px solid #9c9a9a;"><a href="#">Cúp Điện</a></li>
+    </ul>
 </div>
-
-<!-- home page 2 -->
-<div id='div-gpt-ad-1420639369545-1' style='width:300px; height:600px;'>
-    <script type='text/javascript'>
-        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1420639369545-1'); });
-    </script>
-</div>
-
-<!-- home page 3 -->
-<div id='div-gpt-ad-1420639369545-2' style='width:728px; height:90px;'>
-    <script type='text/javascript'>
-        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1420639369545-2'); });
-    </script>
+<div id="body-content">
+    <div id="left-content">
+        <div id="main-entry">
+            <img style="width: 100%; height: 100%;" src="~/Images/image/duonghoabachdang.jpg" />
+            <table style="text-align: left;">
+                <tr>
+                    <td>
+                        <span style="font-size: 11px;">Tin tức Đà Nẵng ngày 17/01/2015</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="main-entry-title">Rực rỡ đường hoa xuân Bạch Đằng 2015</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-size: 13px; color: #000000;">Đường hoa Xuân Bạch Đằng – Đà Nẵng 2015 với chủ đề "Đà Nẵng – Rực rỡ Sắc Xuân" sẽ “mở cửa” đón khách từ ngày 9/2/2015 – 23/2/2015 (tức ngày 21 tháng chạp đến mồng 5 âm lịch).</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="favourite-entry">
+            <table style="width: 100%">
+                <tr>
+                    <th style="border: 1px solid #2b579a; height: 25px; font-size: 14px; font-weight: bold; background-color: #2b579a; color: #ffffff">
+                        <span>Nên đọc</span>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #2b579a; font-weight: bold;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>
+                                    <a class="sub-entry-title" style="font-size: 1.2em;">Chậm lương 15 ngày phải bù thêm tiền cho người lao động</a>
+                                </td>
+                                <td>
+                                    <img style="float: right;" src="~/Images/image/money.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #2b579a; font-weight: bold;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>
+                                    <a class="sub-entry-title" style="font-size: 1.2em;">Cẩn thận với trò bịp tuyển bán hàng cuối năm</a>
+                                </td>
+                                <td>
+                                    <img style="float: right;" src="~/Images/image/tuyenbanhang.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #2b579a; font-weight: bold;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>
+                                    <a class="sub-entry-title" style="font-size: 1.2em;">Đà Nẵng: Hành tỏi trung quốc ngập tràn thị trường</a>
+                                </td>
+                                <td>
+                                    <img style="float: right;" src="~/Images/image/hanhtoi.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #2b579a; font-weight: bold;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>
+                                    <a class="sub-entry-title" style="font-size: 1.2em;">Khám phá chuyên cơ chở ông Nguyễn Bá Thanh về nước</a>
+                                </td>
+                                <td>
+                                    <img style="float: right;" src="~/Images/image/chuyenco.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #2b579a; font-weight: bold;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>
+                                    <a class="sub-entry-title" style="font-size: 1.2em;">Vị trí Đà Nẵng trên bản đồ du lịch quốc gia</a>
+                                </td>
+                                <td>
+                                    <img style="float: right;" src="~/Images/image/bandodulich.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #2b579a; font-weight: bold;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>
+                                    <a class="sub-entry-title" style="font-size: 1.2em;">Thú vui cà phê cóc ở Đà Nẵng</a>
+                                </td>
+                                <td>
+                                    <img style="float: right;" src="~/Images/image/caphecoc.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #2b579a; font-weight: bold;">
+                        <table style="width: 100%">
+                            <tr>
+                                <td>
+                                    <a class="sub-entry-title" style="font-size: 1.2em;">Tiếp tục lật mặt những tên “đầu sỏ” trong Chuyên án T714</a>
+                                </td>
+                                <td>
+                                    <img style="float: right;" src="~/Images/image/caphecoc.jpg" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="sub-entry">
+            <table style="width: 100%">
+                <tr style="width: 100%">
+                    <td>
+                        <img style="width: 213px; height: 130px;" src="http://danangz.com/_upload/thumb/7faaef192f6e374720cc1d3c24b9908f_w232_h155_sc.jpg" />
+                    </td>
+                    <td>
+                        <img style="width: 213px; height: 130px;" src="http://danangz.com/_upload/thumb/737f2391ee60987ffdd549e592854701_w232_h155_sc.jpg" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <a class="sub-entry-title">Đà Nẵng: Bí mật của cô gái làm tóc sống trong khách sạn</a>
+                    </td>
+                    <td style="text-align: left;">
+                        <a class="sub-entry-title">Kết luận vụ nghi can chết treo cổ ở nhà tạm giữ</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="right-content">
+        <div id="weather-embed">
+            <a href="http://www.accuweather.com/vi/vn/da-nang/352954/weather-forecast/352954" class="aw-widget-legal">
+            </a><div id="awcc1421596203517" class="aw-widget-current" data-locationkey="352954" data-unit="c" data-language="vi" data-useip="false" data-uid="awcc1421596203517"></div>
+            <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+        </div>
+        <div id="newest-entry">
+            <br />
+            <span style="color: #2b579a; font-size: 1.5em; font-weight: bold;">Mới nhất</span>
+        </div>
+    </div>
 </div>

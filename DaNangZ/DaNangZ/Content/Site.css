@@ -29,7 +29,8 @@ a {
     }
 
     a:hover {
-        background-color: #c7d1d6;
+        /*background-color: #c7d1d6;*/
+        cursor: pointer;
     }
 
 header, footer, hgroup,
@@ -62,7 +63,6 @@ mark {
 
 h1, h2, h3,
 h4, h5, h6 {
-    color: #000;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -109,7 +109,7 @@ h5, h6 {
     .main-content {
         /*background: url("../Images/accent.png") no-repeat;*/
         padding-left: 10px;
-        padding-top: 30px;
+        padding-top: 5px;
     }
 
     .featured + .main-content {

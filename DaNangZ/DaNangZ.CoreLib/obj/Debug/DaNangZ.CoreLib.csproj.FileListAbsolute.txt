@@ -29,3 +29,4 @@ C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNan
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.dll
 C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.pdb
 C:\Users\THANHVM1\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.csprojResolveAssemblyReference.cache
+C:\Users\thanhvm\Documents\Visual Studio 2013\Projects\Git-DaNangZ\DaNangZ\DaNangZ.CoreLib\obj\Debug\DaNangZ.CoreLib.csprojResolveAssemblyReference.cache
