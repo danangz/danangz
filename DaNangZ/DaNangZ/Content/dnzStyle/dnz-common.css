@@ -154,45 +154,44 @@ ul.topnav {
 
 #left-content {
     float: left;
-    width: 60%;
+    width: 65%;
 }
 
     #left-content #main-entry {
         float: left;
-        width: 60%;
-        margin-top: 20px;
+        width: 65%;
+        margin-top: 10px;
     }
 
     #left-content #sub-entry {
         float: left;
-        width: 60%;
+        width: 65%;
         margin-top: 10px;
     }
 
     #left-content #favourite-entry {
         float: right;
-        width: 38%;
-        margin-top: 20px;
+        width: 33%;
+        margin-top: 10px;
         margin-left: 10px;
     }
 
 #right-content {
-    margin-top: 20px;
     float: right;
-    width: 40%;
-    height: 200px;
+    width: 34%;
 }
 
     #right-content #weather-embed {
         width: 100%;
         margin: 0 auto;
+        margin-top: 10px;
         border-bottom: 2px solid #2b579a;
     }
 
 .main-entry-title {
     color: #2b579a;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: bolder;
     text-decoration: none;
 }
 
@@ -201,4 +200,29 @@ ul.topnav {
     font-size: 1.2em;
     font-weight: bold;
     text-decoration: none;
+}
+
+.div-number-order-top {
+    width: 30px;
+    height: 30px;
+    background-color: #2b579a;
+    border: 1px solid #2b579a;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.div-number-order-bottom {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    color: #2b579a;
+    border: 1px solid #2b579a;
+    font-size: 25px;
+}
+
+#bottom-content {
+    float: left;
+    margin: 0 auto;
+    width: 100%;
+    background: #fff url(../../Images/image/box-sep.gif) repeat-x left top;
 }

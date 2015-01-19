@@ -544,9 +544,12 @@
     <Content Include="Images\icon\view.png" />
     <Content Include="Images\icon\yellow.png" />
     <Content Include="Images\image\bandodulich.jpg" />
+    <Content Include="Images\image\box-sep.gif" />
     <Content Include="Images\image\caphecoc.jpg" />
     <Content Include="Images\image\chuyenco.jpg" />
     <Content Include="Images\image\hanhtoi.jpg" />
+    <Content Include="Images\image\khoitodoituonghchuyencuopgiat.jpg" />
+    <Content Include="Images\image\mankichnucongnhan.jpg" />
     <Content Include="Images\image\money.jpg" />
     <Content Include="Images\image\dnz-logo.png" />
     <Content Include="Images\image\duonghoabachdang.jpg" />
@@ -562,6 +565,8 @@
     <Content Include="ckeditor\README.md" />
     <Content Include="ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <None Include="Scripts\jquery-1.11.1.intellisense.js" />
+    <Content Include="Images\image\thugianmattien.jpg" />
+    <Content Include="Images\image\trietxoanhieunhomcuopgiat.jpg" />
     <Content Include="Images\image\tuyenbanhang.jpg" />
     <Content Include="Scripts\i18n\grid.locale-ar.js" />
     <Content Include="Scripts\i18n\grid.locale-bg.js" />
