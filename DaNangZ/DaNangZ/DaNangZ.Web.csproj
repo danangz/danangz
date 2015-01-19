@@ -544,9 +544,14 @@
     <Content Include="Images\icon\view.png" />
     <Content Include="Images\icon\yellow.png" />
     <Content Include="Images\image\bandodulich.jpg" />
+    <Content Include="Images\image\bietthukhongphep.jpg" />
     <Content Include="Images\image\box-sep.gif" />
     <Content Include="Images\image\caphecoc.jpg" />
+    <Content Include="Images\image\chandungthanhphodanang.jpg" />
     <Content Include="Images\image\chuyenco.jpg" />
+    <Content Include="Images\image\didulichbuidanang.jpg" />
+    <Content Include="Images\image\didulichbuihoian.jpg" />
+    <Content Include="Images\image\docdaokientrucdinhlang.JPG" />
     <Content Include="Images\image\hanhtoi.jpg" />
     <Content Include="Images\image\khoitodoituonghchuyencuopgiat.jpg" />
     <Content Include="Images\image\mankichnucongnhan.jpg" />
