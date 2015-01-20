@@ -211,6 +211,15 @@ ul.topnav {
     font-size: 25px;
 }
 
+.div-number-order-top-small {
+    width: 10px;
+    height: 10px;
+    background-color: #2b579a;
+    border: 1px solid #2b579a;
+    color: #ffffff;
+    font-size: 12px;
+}
+
 .div-number-order-bottom {
     width: 30px;
     height: 30px;
@@ -218,6 +227,15 @@ ul.topnav {
     color: #2b579a;
     border: 1px solid #2b579a;
     font-size: 25px;
+}
+
+.div-number-order-bottom-small {
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+    color: #2b579a;
+    border: 1px solid #2b579a;
+    font-size: 12px;
 }
 
 #bottom-content {
